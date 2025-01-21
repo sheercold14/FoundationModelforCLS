@@ -401,6 +401,19 @@ class BaseTrainer:
         self.val_loss = float("inf")
         self.best_val_loss = float("inf")
         self.val_target = 0.
+        """cold"""
+        self.target_acc = 0.
+        self.target_roc_auc = 0.
+        # self.best_metris =[ {
+        #     "accuracy": {"best_value":0.,"best_model":None},
+        #     "roc_auc": {"best_value":0.,"best_model":None}
+        # }] 
+        self.best_metrics ={
+            "accuracy": 0.,
+            "roc_auc": 0.
+        }
+        self.save_model_for_metrics = []
+        """cold"""
         self.best_val_target = 0.
         self.iters = 0
         self.epoch0 = 0
@@ -425,6 +438,7 @@ class BaseTrainer:
         
     def load_session(self, restore_only_model=False, model_path=None):
         self.get_saved_model_path(model_path=model_path)
+        print(self.model_path)
         if os.path.isfile(self.model_path) and self.restore_session:        
             print("Loading model from {}".format(self.model_path))
             checkpoint = torch.load(self.model_path)
@@ -460,7 +474,26 @@ class BaseTrainer:
                 raise AttributeError("save_dir not found. Please specify the saving directory")
             model_saver_dir = os.path.join(self.save_dir, 'checkpoints')
             check_dir(model_saver_dir)
-            self.model_path = os.path.join(model_saver_dir, self.model_name)            
+            """cold"""
+            model_saver_sub_dir = os.path.join(model_saver_dir,self.model_name)
+            
+            if '[' in self.cross_folder:
+                if self.test_model_folder:
+                    model_saver_folder_dir = os.path.join(model_saver_sub_dir,str(self.test_model_folder))
+                    check_dir(model_saver_folder_dir)
+                    self.model_path = os.path.join(model_saver_folder_dir, self.metric_for_test)            
+                else:
+                    model_saver_folder_dir = os.path.join(model_saver_sub_dir,'0')
+                    check_dir(model_saver_folder_dir)
+                    self.model_path = os.path.join(model_saver_folder_dir, self.metric_for_test)                    
+            else:
+                if self.cross_folder:
+                    model_saver_folder_dir = os.path.join(model_saver_sub_dir,str(self.cross_folder))
+                    check_dir(model_saver_folder_dir)
+                    self.model_path = os.path.join(model_saver_folder_dir, self.metric_for_test)            
+                else:
+                    self.model_path = os.path.join(model_saver_sub_dir, self.metric_for_test)     
+                
         else:
             self.model_path = os.path.abspath(model_path)
         
@@ -476,7 +509,33 @@ class BaseTrainer:
                 state['scaler'] = self.scaler.state_dict()            
             torch.save(state, self.model_path)
         synchronize()
-        
+    """cold"""
+    def save_session_v2(self, model_path=None, verbose=False, metric_name=None):
+        if self.is_rank0:
+            root_dir = os.path.join(self.save_dir, 'checkpoints')
+            if not os.path.exists(root_dir):
+                os.makedirs(root_dir)
+            model_saver_dir = os.path.join(root_dir,self.model_name)
+            if not os.path.exists(model_saver_dir):
+                os.makedirs(model_saver_dir)
+            check_dir(model_saver_dir)
+            if self.cross_folder:
+                model_saver_folder_dir = os.path.join(model_saver_dir,str(self.cross_folder))
+                check_dir(model_saver_folder_dir)
+                model_saver_dir = model_saver_folder_dir
+            if metric_name == None:
+                model_path = os.path.join(model_saver_dir,'ori')
+            else:
+                model_path = os.path.join(model_saver_dir,metric_name)
+            if verbose:
+                print("Saving model as {}".format(os.path.basename(self.model_path)) )
+            state = {'iters': self.iters, 'state_dict': self.best_model, 'original_state' : self.org_model_state,
+                     'optimizer': opimizer_to_CPU_state(self.optimizer), 'epoch': self.epoch,
+                    'parameters' : self.parameters}
+            if self.scaler is not None:
+                state['scaler'] = self.scaler.state_dict()            
+            torch.save(state, model_path)
+        synchronize() 
     def get_embedding_path(self, mode="umap_emb", iters=-1):
         self.get_saved_model_path()
         base_path, model_name = self.model_path.split("checkpoints/")

@@ -1,7 +1,7 @@
 {
   "dataset_params":{
       "dataset":"APTOS2019",
-      "data_location":"/storage/medical_data",
+      "data_location":"/data/lishichao/data/",
       "train_transforms":{
           "Resize":{
               "apply":true,
@@ -192,7 +192,7 @@
       "freeze_backbone":false
   },
   "foundation_params":{
-      "backbone_type":"focal",
+      "backbone_type":"dinov2_vitb14",
       "img_size":224,
       "pretrained":true,
       "freeze_backbone":true,
@@ -255,7 +255,7 @@
       "model_name":"APTOS2019",
       "epochs":100,
       "val_every":1,
-      "log_every":100,
+      "log_every":1,
       "save_best_model":true,
       "log_embeddings":false,
       "knn_eval":false,
@@ -268,7 +268,7 @@
   },
   "system_params":{
       "use_all_GPUs":false,
-      "which_GPUs":"4",
+      "which_GPUs":"2",
       "use_GPU":true
   },
   "log_params":{

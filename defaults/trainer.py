@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 from .wrappers import DefaultWrapper, dist
 from torch.cuda.amp import GradScaler, autocast
 from torch.utils.data.distributed import DistributedSampler as DS
+from itertools import islice
 
         
 class Trainer(BaseTrainer):
@@ -32,7 +33,9 @@ class Trainer(BaseTrainer):
         self.total_steps = int(len(self.trainloader) * self.epochs)
         
         self.model = wraped_defs.model
-        self.criterion = wraped_defs.criterion        
+        self.criterion = wraped_defs.criterion 
+        self.criterion_organ = wraped_defs.criterion_organ 
+            
         self.optimizer = wraped_defs.optimizer 
         self.scheduler = wraped_defs.schedulers
         self.metric_fn = wraped_defs.metric
@@ -40,7 +43,9 @@ class Trainer(BaseTrainer):
         self.org_model_state = model_to_CPU_state(self.model)
         self.org_optimizer_state = opimizer_to_CPU_state(self.optimizer)
         self.total_step = len(self.trainloader)        
-        self.best_model = deepcopy(self.org_model_state)  
+        self.best_model = deepcopy(self.org_model_state)
+
+
         
         if self.use_mixed_precision:
             self.scaler = GradScaler()
@@ -87,7 +92,10 @@ class Trainer(BaseTrainer):
             print(" ==> Training done")
         if not self.is_grid_search:
             self.evaluate()
-            self.save_session(verbose=True)
+            """cold"""
+            for metric in self.save_model_for_metrics:
+                self.save_session_v2(metric_name=None,verbose=True)
+            """cold"""
         synchronize()
         
     def global_step(self, **kwargs):
@@ -97,17 +105,34 @@ class Trainer(BaseTrainer):
         """
         self.optimizer.zero_grad()
         
-        metric = kwargs['metric']        
-        images, labels = kwargs['batch']
-        if len(labels) == 2 and isinstance(labels, list):
-            ids    = labels[1]
-            labels = labels[0]
-        labels = labels.to(self.device_id, non_blocking=True)
-        images = images.to(self.device_id, non_blocking=True) 
-        
-        with autocast(self.use_mixed_precision):
-            outputs = self.model(images)
-            loss = self.criterion(outputs, labels)
+        metric = kwargs['metric']   
+        if self.additional_loss:     
+            images, labels, organ_labels = kwargs['batch']
+            if len(labels) == 2 and isinstance(labels, list):
+                ids    = labels[1]
+                labels = labels[0]
+            labels = labels.to(self.device_id, non_blocking=True)
+            images = images.to(self.device_id, non_blocking=True) 
+            organ_labels = organ_labels.to(self.device_id, non_blocking=True)
+            
+            with torch.amp.autocast("cuda", enabled=self.use_mixed_precision):
+                outputs, outputs_organ = self.model(images)
+                loss1 = self.criterion(outputs, labels)
+                loss2 = self.criterion_organ(outputs_organ, organ_labels)
+                loss = loss1 + loss2
+        else:
+            images, labels = kwargs['batch']
+            if len(labels) == 2 and isinstance(labels, list):
+                ids    = labels[1]
+                labels = labels[0]
+            labels = labels.to(self.device_id, non_blocking=True)
+            images = images.to(self.device_id, non_blocking=True) 
+            
+            with torch.amp.autocast("cuda", enabled=self.use_mixed_precision):
+                if self.additional_loss:
+                    outputs, outputs_organ = self.model(images)
+                outputs = self.model(images)
+                loss = self.criterion(outputs, labels)
 
         if not self.use_mixed_precision:
             loss.backward() 
@@ -143,7 +168,11 @@ class Trainer(BaseTrainer):
         """
         self.evaluate()        
         if not self.is_grid_search:
-            self.save_session()                  
+            """cold: if the list is empty, no action will be taken. The original model state will not be saved"""
+            for metric in self.save_model_for_metrics:
+                self.save_session_v2(metric_name=metric) 
+            self.save_model_for_metrics = [] 
+            """cold"""               
     
     def evaluate(self, dataloader=None, **kwargs):
         """Validation loop function.
@@ -217,25 +246,47 @@ class Trainer(BaseTrainer):
             
         self.val_loss = np.array(val_loss).mean()
         eval_metrics = metric.get_value(use_dist=isinstance(dataloader,DS))
+        
+        """cold"""
+        self.target_acc = eval_metrics[f"val_accuracy"]
+        self.target_roc_auc = eval_metrics[f"val_roc_auc"]
+        """cold"""
+            
         if self.knn_eval:
             eval_metrics.update(knn_metric.get_value(use_dist=isinstance(dataloader,DS)))
+        
         self.val_target = eval_metrics[f"val_{target_metric}"]
 
         if not self.is_grid_search:
             if self.report_intermediate_steps:
                 self.logging(eval_metrics)
                 self.logging({'val_loss': round(self.val_loss, 5)})
-            if self.val_target > self.best_val_target:
-                self.best_val_target = self.val_target
+            """cold"""
+            if self.target_acc > self.best_metrics['accuracy']:
+                self.best_metrics['accuracy'] = self.target_acc
+                self.save_model_for_metrics.append('accuracy')
                 if self.save_best_model:
                     self.best_model = model_to_CPU_state(self.model)
+                    print(f"Saving best model with accuracy: {self.target_acc}")
+            if self.target_roc_auc > self.best_metrics['roc_auc']:
+                self.best_metrics['roc_auc'] = self.target_roc_auc
+                self.save_model_for_metrics.append('roc_auc')
+                if self.save_best_model:
+                    self.best_model = model_to_CPU_state(self.model)
+                    print(f"Saving best model with roc_auc: {self.target_roc_auc}")
+            """cold"""
+    
+            # if self.val_target > self.best_val_target:
+            #     self.best_val_target = self.val_target
+            #     if self.save_best_model:
+            #         self.best_model = model_to_CPU_state(self.model)
             if self.val_loss <= self.best_val_loss:
                 self.best_val_loss = self.val_loss
             if not self.save_best_model:
                 self.best_model = model_to_CPU_state(self.model)
         self.model.train()
         
-    def test(self, dataloader=None, **kwargs):
+    def test(self, dataloader=None, test_command=False, knn_eval=False, **kwargs):
         """Test function.
         
         Just be careful you are not explicitly passing the wrong dataset here.
@@ -252,16 +303,37 @@ class Trainer(BaseTrainer):
             print("Full checkpoint not found... Proceeding with partial model (assuming transfer learning is ON)")
         self.model.eval()
         
+        if not knn_eval:
+            self.knn_eval = False
+            print('not using knn-eval')
         if self.knn_eval:
             self.build_feature_bank()
             
         
         if dataloader == None:
             dataloader=self.testloader  
-            
-        results_dir = os.path.join(self.save_dir, 'results', self.model_name)
-        metrics_path = os.path.join(results_dir, "metrics_results.json")
-        check_dir(results_dir)   
+        if self.cross_folder:
+            if self.test_on_another_dataset:
+                results_dir = os.path.join(self.save_dir, 'results', self.model_name, self.test_on_another_dataset)
+            else:
+                results_dir = os.path.join(self.save_dir, 'results', self.model_name)
+                
+            check_dir(results_dir)   
+            results_folder_dir = os.path.join(results_dir, str(self.cross_folder))
+            check_dir(results_folder_dir)
+            if self.metric_for_test:
+                metrics_path = os.path.join(results_folder_dir,f"{self.metric_for_test}_results.json")
+            else:
+                metrics_path = os.path.join(results_folder_dir, "metrics_results.json")
+
+        else:
+            results_dir = os.path.join(self.save_dir, 'results', self.model_name)
+            check_dir(results_dir)   
+            if self.metric_for_test:
+                metrics_path = os.path.join(results_dir,f"{self.metric_for_test}_results.json")
+            else:
+                metrics_path = os.path.join(results_dir, "metrics_results.json")
+
 
         test_loss = []
         feature_bank = []
@@ -345,6 +417,8 @@ class Trainer(BaseTrainer):
             save_json(test_metrics, knn_metrics_path)
         
         print('\n',"--"*5, "{} evaluated on the test set".format(self.model_name), "--"*5,'\n')
+        if not test_command:
+            self.logging(test_metrics)
         test_metrics = pd.DataFrame.from_dict(test_metrics, orient='index').T
         print(tabulate(test_metrics, headers = 'keys', tablefmt = 'psql'))
         print('\n',"--"*35, '\n')      
@@ -391,7 +465,8 @@ class Trainer(BaseTrainer):
             
             self.feature_bank = []
             self.targets_bank = []   
-            for images, labels in iter_bar:
+            for batch in iter_bar:
+                images, labels = batch[:2]
                 if len(labels) == 2 and isinstance(labels, list):
                     ids    = labels[1]
                     labels = labels[0]
@@ -402,11 +477,11 @@ class Trainer(BaseTrainer):
                     _, feature = self.model.module(images, return_embedding=True)
                 else:
                     _, feature = self.model(images, return_embedding=True)
-                  
+                
                 feature = F.normalize(feature, dim=1)
                 self.feature_bank.append(feature)
                 self.targets_bank.append(labels)
-
+                
             self.feature_bank = torch.cat(self.feature_bank, dim=0).t().contiguous()
             self.targets_bank = torch.cat(self.targets_bank, dim=0).t().contiguous()
 

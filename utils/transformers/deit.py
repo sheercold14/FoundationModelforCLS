@@ -163,7 +163,9 @@ class VisionTransformer(nn.Module):
 
         # Classifier head
         self.fc = nn.Linear(embed_dim, num_classes) if num_classes > 0 else nn.Identity()
-
+        # """cold"""
+        # self.fc_organ = nn.Linear(embed_dim, num_classes) if num_classes > 0 else nn.Identity()
+        # """cold"""
         trunc_normal_(self.pos_embed, std=.02)
         trunc_normal_(self.cls_token, std=.02)
         self.apply(self._init_weights)
@@ -317,6 +319,50 @@ class VisionTransformer(nn.Module):
             # the patch tokens from the last block. This is useful for linear eval.
             output.append(torch.mean(x[:, 1:], dim=1))
         return torch.cat(output, dim=-1)
+class VisionTransformer_multi_fc(VisionTransformer):
+    """ Vision Transformer """
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        embed_dim = kwargs.get('embed_dim', 768)  # 获取嵌入维度，默认为768
+        """cold"""
+        # self.fc_organ = nn.Linear(embed_dim, self.num_classes) if self.num_classes > 0 else nn.Identity()
+        # self.fc_organ = nn.Linear(embed_dim, embed_dim)
+        """cold"""
+    def forward(self, x):
+        # convert to list
+        if not isinstance(x, list):
+            x = [x]
+        # Perform forward pass separately on each resolution input.
+        # The inputs corresponding to a single resolution are clubbed and single
+        # forward is run on the same resolution inputs. Hence we do several
+        # forward passes = number of different resolutions used. We then
+        # concatenate all the output features.
+        if self.is_memory_efficient:
+            for start_idx, _x in enumerate(x):
+                _out = self.forward_features(_x)
+                _out = self.fc(_out)
+                if start_idx == 0:
+                    output = _out
+                else:
+                    output = torch.cat((output, _out))   
+            return output
+                
+        else:        
+            idx_crops = torch.cumsum(torch.unique_consecutive(
+                torch.tensor([inp.shape[-1] for inp in x]),
+                return_counts=True,
+            )[1], 0)
+            start_idx = 0
+            for end_idx in idx_crops:
+                _out = self.forward_features(torch.cat(x[start_idx: end_idx]))
+                if start_idx == 0:
+                    output = _out
+                else:
+                    output = torch.cat((output, _out))
+                start_idx = end_idx
+            # Run the head forward on the concatenated features.
+            return self.fc(output)
+
 
 
 def deit_tiny(patch_size=16, img_size=[224], pretrained=False, **kwargs):
@@ -340,6 +386,15 @@ def deit_small(patch_size=16, img_size=[224], pretrained=False, **kwargs):
 
 
 def deit_base(patch_size=16, img_size=[224], pretrained=False, **kwargs):
+    # additional_fc = kwargs.get("additional_fc",False)
+    # if additional_fc:
+    #     model = VisionTransformer_multi_fc(img_size=img_size,
+    #     patch_size=patch_size, embed_dim=768, depth=12, num_heads=12, mlp_ratio=4,
+    #     qkv_bias=True, norm_layer=partial(nn.LayerNorm, eps=1e-6), **kwargs)
+    # else:
+    #     model = VisionTransformer(img_size=img_size,
+    #     patch_size=patch_size, embed_dim=768, depth=12, num_heads=12, mlp_ratio=4,
+    #     qkv_bias=True, norm_layer=partial(nn.LayerNorm, eps=1e-6), **kwargs)
     model = VisionTransformer(img_size=img_size,
         patch_size=patch_size, embed_dim=768, depth=12, num_heads=12, mlp_ratio=4,
         qkv_bias=True, norm_layer=partial(nn.LayerNorm, eps=1e-6), **kwargs)

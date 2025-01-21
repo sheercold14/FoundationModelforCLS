@@ -147,7 +147,7 @@ class Classifier(BaseModel):
         
             if hasattr(transformers, self.backbone_type):  
                 self.backbone = transformers.__dict__[self.backbone_type](**self.transformers_params, 
-                                                                        pretrained=self.pretrained)
+                                                                        pretrained=self.pretrained,additional_fc=self.additional_fc)
                 fc_in_channels = self.backbone.num_features
                 if hasattr(self.transformers_params, "trim_cutoff"):
                     self.trim_transformer()
@@ -172,6 +172,8 @@ class Classifier(BaseModel):
 
             # modify stem and last layer
             self.fc = nn.Linear(fc_in_channels, self.n_classes)
+            if self.additional_fc:
+                self.fc_organ = nn.Linear(fc_in_channels, self.n_organ_classes)
             self.modify_first_layer(self.img_channels, self.pretrained)            
         
         if self.freeze_backbone:
@@ -183,7 +185,7 @@ class Classifier(BaseModel):
           
 
     def forward(self, x, return_embedding=False):
-        with autocast(self.use_mixed_precision):
+        with torch.amp.autocast("cuda", enabled=self.use_mixed_precision):
             
             if self.freeze_backbone:
                 self.backbone.eval()
@@ -243,7 +245,8 @@ class Classifier(BaseModel):
                             return x_emb
                 
                 if 'clip' in self.backbone_type:
-                    embed = self.backbone(x, return_block=self.partial.drop_cutoff)
+                    # embed = self.backbone(x, return_block=self.partial.drop_cutoff)
+                    embed = self.backbone(x)
                     x_cls, x_emb = embed,embed 
                     if return_embedding:
                         return self.fc(x_cls).float(), x_cls.float()
@@ -265,12 +268,22 @@ class Classifier(BaseModel):
                             return x_emb
                         
             x_emb = self.backbone(x)
+            
             x = self.fc(x_emb)
+            if self.additional_fc:
+              x2 = self.fc_organ(x_emb)
             
             if return_embedding:   
-                return x, x_emb
+                if self.additional_fc:
+                    return x, x2, x_emb
+                else:
+                    return x,x_emb
             else:
-                return x
+                if self.additional_fc:
+                    return x, x2
+                else:
+                    return x
+                    
             
 
     def partial_unfreeze(self):
@@ -408,7 +421,7 @@ class Ymodel_SAM(BaseModel):
                 
 
     def forward(self, x, return_embedding=False):
-        with autocast(self.use_mixed_precision):
+        with torch.amp.autocast("cuda", enabled=self.use_mixed_precision):
             
             self.freeze_foundation()
             found_embeds = self.foundation_model(x)
@@ -424,6 +437,105 @@ class Ymodel_SAM(BaseModel):
                 return outputs, features
             else:
                 outputs = self.main_model(linear_proj_reshaped,return_embedding)
+                return outputs
+
+    def freeze_check(self):
+        self.freeze_foundation()
+        self.freeze_main()
+        
+    def freeze_foundation(self):
+        if self.frozen_foundation:
+            self.foundation_model.eval()            
+            self.freeze_submodel(self.foundation_model)
+            
+    def freeze_main(self):
+        if self.frozen_main:
+            self.main_model.eval() 
+            self.freeze_submodel(self.main_model)
+            pdb.set_trace()
+            self.linear_projector.eval()            
+            self.freeze_submodel(self.linear_projector)
+
+from transformers import BertTokenizer 
+from .TextEncoder import TextEncoder
+class UniModule_Guided(nn.Module):
+    def __init__(self, size, nhead, dropout) -> None:
+        super(UniModule_Guided, self).__init__()
+        layer = nn.TransformerDecoderLayer(d_model=size, nhead=nhead, dim_feedforward=512, dropout=dropout, activation='relu', batch_first=True)
+        self.decoder = nn.TransformerDecoder(layer, num_layers=2)
+        self.mm = nn.Sequential(*[nn.Linear(size*4, size), nn.ReLU(), nn.Linear(size, size), nn.ReLU()])
+    
+    def forward(self, h, h_text_bag):
+        h = self.decoder(h_text_bag, h)           # Bx4xC
+        h = h.view(h.shape[0], -1)                      # Bx(4xC)
+        cls_feat = self.mm(h)                     # BxC
+        return cls_feat
+class Ymodel_DINO_Text(BaseModel):
+    def __init__(self, model_params, foundation_model, main_model):
+        super().__init__()
+        self.attr_from_dict(model_params)
+        self.frozen_main = self.model_params.freeze_backbone
+        self.frozen_foundation = self.foundation_params.freeze_backbone  
+        self.embed_dim = main_model.backbone.embed_dim
+        self.foundation_embed = foundation_model.backbone.embed_dim
+        self.main_model = main_model
+        self.foundation_model = foundation_model
+        self.linear_projector = nn.Sequential( nn.Linear(self.foundation_embed, self.embed_dim),
+                                                nn.LayerNorm(self.embed_dim)
+                                            )
+        self.size = 768
+        self.tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+        self.text_encoder = TextEncoder(out_channels=768)
+        
+        # self.mm_text = nn.Sequential(*[nn.Linear(self.size*4, self.size), nn.ReLU(), nn.Linear(self.size, self.size), nn.ReLU()])
+        self.mm = nn.Sequential(*[nn.Linear(self.size*5, self.size), nn.ReLU(), nn.Linear(self.size, self.size), nn.ReLU()])
+        # self.mm = UniModule_Guided(768, nhead=8, dropout=0.25)
+        self.classifier = nn.Linear(self.size, 2)      
+        # send the wrapped model to the original model's GPU ID
+        self.to(self.device_id)
+
+        
+    def forward(self, x, text, return_embedding=False):
+        with torch.amp.autocast("cuda", enabled=self.use_mixed_precision):
+            
+            self.freeze_foundation()
+            
+            found_embeds = self.foundation_model(x)[:,1:,:]
+            linear_proj = self.linear_projector(found_embeds)
+
+            
+            if return_embedding:
+                if self.model_params.additional_fc:
+                    outputs, output_label, features = self.main_model(linear_proj,return_embedding)
+                else:
+                    outputs, visual_feature = self.main_model(linear_proj,return_embedding)
+                
+                description_list = []
+                for idx,description in text.items(): 
+                    encoding = self.tokenizer(description,padding=True,truncation=True,return_tensors='pt', max_length=128)
+                    text_inputs = {key: val.to(self.device_id, non_blocking=True)  for key, val in encoding.items()}
+                    description_list.append(text_inputs)
+                    
+                text_feature_list = []
+                for text_inputs in description_list:
+                    text_feature_list.append(self.text_encoder(text_inputs).unsqueeze(1))
+                text_feature = torch.cat(text_feature_list,dim=1)
+                
+                #text_first_fusion
+                # text_feature = text_feature.view(text_feature.shape[0],1,-1)
+                # text_feature = self.mm_text(text_feature)
+                
+                # MLP
+                h = torch.cat([visual_feature.unsqueeze(1),text_feature],dim=1)                
+                h = h.view(h.shape[0],-1)
+                h = self.mm(h)
+                # Unimodule_guided
+                # h = self.mm(visual_feature.unsqueeze(1),text_feature)
+                logits = self.classifier(h)
+                
+                return logits, visual_feature
+            else:
+                outputs = self.main_model(linear_proj,return_embedding)
                 return outputs
 
     def freeze_check(self):
@@ -462,7 +574,7 @@ class Ymodel_DINO(BaseModel):
                 
 
     def forward(self, x, return_embedding=False):
-        with autocast(self.use_mixed_precision):
+        with torch.amp.autocast("cuda", enabled=self.use_mixed_precision):
             
             self.freeze_foundation()
             
@@ -470,7 +582,10 @@ class Ymodel_DINO(BaseModel):
             linear_proj = self.linear_projector(found_embeds)
 
             if return_embedding:
-                outputs, features = self.main_model(linear_proj,return_embedding)
+                if self.model_params.additional_fc:
+                    outputs, output_label, features = self.main_model(linear_proj,return_embedding)
+                else:
+                    outputs, features = self.main_model(linear_proj,return_embedding)
                 return outputs, features
             else:
                 outputs = self.main_model(linear_proj,return_embedding)
@@ -492,6 +607,7 @@ class Ymodel_DINO(BaseModel):
             pdb.set_trace()
             self.linear_projector.eval()            
             self.freeze_submodel(self.linear_projector)
+        
 
 class Ymodel_SEEM(BaseModel):
     def __init__(self, model_params, foundation_model, main_model):
@@ -513,7 +629,7 @@ class Ymodel_SEEM(BaseModel):
                 
 
     def forward(self, x, return_embedding=False):
-        with autocast(self.use_mixed_precision):
+        with torch.amp.autocast("cuda", enabled=self.use_mixed_precision):
             
             self.freeze_foundation()
             
@@ -564,7 +680,57 @@ class Ymodel_CLIP(BaseModel):
                 
 
     def forward(self, x, return_embedding=False):
-        with autocast(self.use_mixed_precision):
+        with torch.amp.autocast("cuda", enabled=self.use_mixed_precision):
+            
+            self.freeze_foundation()
+            found_embeds = self.foundation_model(x)
+            #print(found_embeds.shape)
+            linear_proj = self.linear_projector(found_embeds)
+
+            if return_embedding:
+                outputs, features = self.main_model(linear_proj,return_embedding)
+                return outputs, features
+            else:
+                outputs = self.main_model(linear_proj,return_embedding)
+                return outputs
+
+    def freeze_check(self):
+        self.freeze_foundation()
+        self.freeze_main()
+        
+    def freeze_foundation(self):
+        if self.frozen_foundation:
+            self.foundation_model.eval()            
+            self.freeze_submodel(self.foundation_model)
+            
+    def freeze_main(self):
+        if self.frozen_main:
+            self.main_model.eval() 
+            self.freeze_submodel(self.main_model)
+            pdb.set_trace()
+            self.linear_projector.eval()            
+            self.freeze_submodel(self.linear_projector)
+
+class Ymodel_CLIP_CLS(BaseModel):
+    def __init__(self, model_params, foundation_model, main_model):
+        super().__init__()
+        self.attr_from_dict(model_params)
+        self.frozen_main = self.model_params.freeze_backbone
+        self.frozen_foundation = self.foundation_params.freeze_backbone  
+        self.embed_dim = main_model.backbone.embed_dim
+        self.foundation_embed = 768
+        self.main_model = main_model
+        self.foundation_model = foundation_model
+        self.linear_projector = nn.Sequential( nn.Linear(self.foundation_embed, self.embed_dim),
+                                                nn.LayerNorm(self.embed_dim)
+                                            )
+       
+        # send the wrapped model to the original model's GPU ID
+        self.to(self.device_id)
+                
+
+    def forward(self, x, return_embedding=False):
+        with torch.amp.autocast("cuda", enabled=self.use_mixed_precision):
             
             self.freeze_foundation()
             found_embeds = self.foundation_model(x)

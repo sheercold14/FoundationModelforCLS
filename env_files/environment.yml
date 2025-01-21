@@ -1,9 +1,4 @@
 name: medical-foundation
-channels:
-  - defaults
-  - conda-forge
-  - pytorch
-  - xformers
 dependencies:
   - torchmetrics=0.10.3
   - iopath=0.1.9

@@ -1,5 +1,7 @@
 from .models import *
 from .datasets import *
+from .dataset_val_cam import *
+from .datasets_v2 import *
 from utils._utils import *
 
 import torch.distributed as dist
@@ -7,6 +9,7 @@ import timm
 from torch.nn.parallel import DistributedDataParallel as DDP
 from torch.utils.data.distributed import DistributedSampler as DS
 from torch.nn import LayerNorm
+from torch.utils.data import WeightedRandomSampler
 
 
 # try:
@@ -102,6 +105,7 @@ class DefaultWrapper:
         
         # init loss functions
         self.criterion = self.init_criteria()  
+        self.criterion_organ = nn.CrossEntropyLoss() 
         
         # init metric functions
         self.init_metrics()
@@ -125,14 +129,29 @@ class DefaultWrapper:
         feature_bank_set, feature_bank_Loader = None, None
         DataSet = self.dataset_mapper.get(self.dataset_params.dataset, False)
         assert DataSet, "Dataset not found - Plese select one of the following: {}".format(list(self.dataset_mapper.keys()))
-
-        trainset = DataSet(self.dataset_params, mode='train')
-        valset   = DataSet(self.dataset_params, mode='eval')
-        testset  = DataSet(self.dataset_params, mode='test')
-
+        if self.parameters.training_params.cross_folder:
+            """cold"""
+            cross_folder = self.parameters.training_params.cross_folder
+            trainset = DataSet(self.dataset_params, mode='train',folder=cross_folder)
+            valset   = DataSet(self.dataset_params, mode='val',folder=cross_folder)
+            testset  = DataSet(self.dataset_params, mode='test',folder=cross_folder)
+        else:
+            if self.parameters.training_params.cross_folder:
+                cross_folder = self.parameters.training_params.cross_folder
+                trainset = DataSet(self.dataset_params, mode='train',folder=cross_folder)
+                valset   = DataSet(self.dataset_params, mode='val',folder=cross_folder)
+                testset  = DataSet(self.dataset_params, mode='test',folder=cross_folder)
+            else:
+                trainset = DataSet(self.dataset_params, mode='train')
+                valset   = DataSet(self.dataset_params, mode='eval')
+                testset  = DataSet(self.dataset_params, mode='test')
         #print(len(valset))
         if self.training_params.knn_eval or not self.is_supervised:
-            feature_bank_set = DataSet(self.dataset_params, mode='train')
+            if self.parameters.training_params.cross_folder:
+                cross_folder = self.parameters.training_params.cross_folder
+                feature_bank_set = DataSet(self.dataset_params, mode='train',folder=cross_folder)
+            else:
+                feature_bank_set = DataSet(self.dataset_params, mode='train')
             feature_bank_set.transform = valset.transform # Use validation transform when setting up prototype vectors
             feature_bank_set.resizing = valset.resizing 
         
@@ -143,8 +162,15 @@ class DefaultWrapper:
         self.task = trainset.task
         self.is_multiclass = trainset.is_multiclass        
         
-        
-        train_sampler = None
+        """cold"""
+        if self.training_params.weighted_sampler:
+            labels = np.array([item['label'] for item in trainset.data])
+            class_counts = np.bincount(labels)
+            class_weights = 1. / class_counts
+            sample_weights = class_weights[labels]
+            train_sampler = WeightedRandomSampler(weights=sample_weights, num_samples=len(sample_weights),replacement=True)
+        else: 
+            train_sampler = None  
         feature_bank_sampler = None
         train_shuffle = self.dataloader_params['trainloader']['shuffle']
         # distributed sampler 
@@ -156,7 +182,13 @@ class DefaultWrapper:
             self.dataloader_params['trainloader']['shuffle'] = False
 
         # define distributed samplers etc
-        trainLoader = DataLoader(trainset, **self.dataloader_params['trainloader'],sampler=train_sampler)
+        """cold"""
+        if self.training_params.weighted_sampler:
+            dataloader_args = self.dataloader_params['trainloader'].copy()
+            dataloader_args['shuffle'] = False
+            trainLoader = DataLoader(trainset, **dataloader_args, sampler=train_sampler)
+        else:
+            trainLoader = DataLoader(trainset, **self.dataloader_params['trainloader'],sampler=train_sampler)
         testLoader  = DataLoader(testset, **self.dataloader_params['testloader'])
         if len(valset) > 0 :
             valLoader   = DataLoader(valset, **self.dataloader_params['valloader'])
@@ -322,9 +354,17 @@ class DefaultWrapper:
         """Initialize the loss criteria.  """
         if self.task == 'classification':
             if self.is_multiclass:
-                crit = nn.CrossEntropyLoss() 
+                if self.training_params.weighted_loss:
+                    weight = torch.FloatTensor(self.training_params.loss_weights).cuda()
+                    crit = nn.CrossEntropyLoss(weight=weight) 
+                else:
+                    crit = nn.CrossEntropyLoss()
             else:
-                crit = nn.BCEWithLogitsLoss() 
+                if self.training_params.weighted_loss:
+                    pos_weight = torch.tensor([self.training_params.loss_weights], dtype=torch.float32).cuda()
+                    crit = nn.BCEWithLogitsLoss(pos_weight=pos_weight)
+                else:
+                    crit = nn.BCEWithLogitsLoss() 
         else:
             raise NotImplementedError("Only classification tasks are implemented for now")
             
@@ -395,7 +435,24 @@ class DefaultWrapper:
             "DDSM" : DDSM,
             "ISIC2019": ISIC2019,
             "APTOS2019": APTOS2019,
-            "Camelyon": Camelyon,                       
+            "Camelyon": Camelyon,   
+            "TUMOR_Thyroid": TUMOR_Thyroid,
+            "TUMOR_Lung": TUMOR_Lung,
+            "TUMOR_Breast": TUMOR_Breast,
+            "TUMOR_All": TUMOR_All, 
+            "TUMOR_All_v1": TUMOR_All_v1,
+            "TUMOR_All_organ": TUMOR_All_organ,
+            "TUMOR_Thyroid_3": TUMOR_Thyroid_3,
+            "TUMOR_All_organ_save_val": TUMOR_All_organ_save_val,
+            "TUMOR_thyroid_3_save_val": TUMOR_Thyroid_3_save_val,
+            "TUMOR_Thyroid_3_front":TUMOR_Thyroid_3_front,
+            "TUMOR_Thyroid_Clean": TUMOR_Thyroid_Clean,
+            "TUMOR_thyroid_clean_save_val": TUMOR_Thyroid_clean_save_val,
+            "TUMOR_Thyroid_3_Text":TUMOR_Thyroid_3_Text,
+            "TUMOR_Thyroid_3_Text_quality":TUMOR_Thyroid_3_Text_quality,
+            "TUMOR_Thyroid_3_202411": TUMOR_Thyroid_3_202411
+             
+              
             }
     
     @property
@@ -464,10 +521,14 @@ class DINOWrapper(DefaultWrapper):
         # INIT main model
         print_ddp("\033[94m\tInit main model\033[0m")
         main_model = Classifier(self.model_params)      
-        main_model.backbone.patch_embed = Identity() 
+        main_model.backbone.patch_embed = Identity()
+
         
         # INIT Ymodel model
-        model = Ymodel_DINO(self.parameters, foundation_model, main_model)   
+        if self.model_params.text_branch:
+            model = Ymodel_DINO_Text(self.parameters, foundation_model, main_model)   
+        else:
+            model = Ymodel_DINO(self.parameters, foundation_model, main_model) 
         if ddp_is_on():
             model = DDP(model, device_ids=[self.device_id], find_unused_parameters=False)
         return model

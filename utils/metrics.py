@@ -25,7 +25,21 @@ def mean_roc_auc(truths, predictions):
     """
     _truths = np.array(deepcopy(truths))
     _predictions = np.array(deepcopy(predictions))  
-    n_classes = _predictions.shape[-1]
+    #n_classes = _predictions.shape[-1]
+    """cold"""
+    n_classes = _predictions.shape[-1] if _predictions.ndim > 1 else 1
+    
+    if n_classes == 1:
+        # Handle binary classification (n_classes = 1)
+        # Check if both classes (0 and 1) are present
+        if len(np.unique(_truths)) == 1:
+            # Only one class present, return 0.5 as a neutral score
+            return 0.5
+        try:
+            return metrics.roc_auc_score(_truths, _predictions)
+        except ValueError as e:
+            print(f"Unable to calculate ROC AUC: {e}")
+            return 0.5
     avg_roc_auc = 0 
     for class_num in range(n_classes):
         auc = 0.5

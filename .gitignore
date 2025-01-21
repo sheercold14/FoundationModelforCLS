@@ -11,3 +11,7 @@
 *.pt
 /notebooks
 params_*.json
+**/*.png
+**/*.jpg
+**/*.txt
+CAM/thyroid_3_resize_val_imgs_acc/fold_4/benign/correct/*.png

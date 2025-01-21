@@ -68,7 +68,7 @@ def load_pickle(fname):
     return data      
 
 def get_saved_model_path(checkpoint_name):
-    path = os.path.join(os.getcwd(), 'checkpoints')
+    path = os.path.join('/data/lishichao/project/Foundation-Medical/results', 'checkpoints')
     if not os.path.exists(path):
         raise IOError("Checkpoint path {} does not exist".format(path))
     else:
