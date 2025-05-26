@@ -1,12 +1,12 @@
 #!/bin.bash
-params_path="/data/lishichao/project/Foundation-Medical/config/hospital_3/202502/hospital3_all_organ_text_aug.json"
+params_path="/data/lishichao/project/Foundation-Medical/config/hospital_3/202502/hospital3_all_thyroid_img.json"
 val_every=1
 gpu=2
 cross_folds=5  # 设定交叉验证的折数
 
-root="/data/lishichao/project/Foundation-Medical/shell/hospital_3/all_organ"
-experiment_name="hospitals_3_all_organ_textbranch_augment_batchsize12_20250220"  # 设定实验名称
-folder_name="all_organ_with_thyroid_text_aug"
+root="/data/lishichao/project/Foundation-Medical/shell/hospital_3/all_thyroid"
+experiment_name="test_all_thyroid_img_augment_20250218"  # 设定实验名称
+folder_name="all_thyroid_img_aug"
 
 # 设置要更改的工作目录
 TARGET_DIR="/data/lishichao/project/Foundation-Medical"
@@ -22,9 +22,9 @@ else
 fi
 
 # 循环进行交叉验证
-for (( i=4; i<cross_folds; i++ ))
+for (( i=0; i<2; i++ ))
 do
     echo "Running fold $i..."
     SHELL="${root}/${folder_name}/${experiment_name}_fold${i}.txt"
-    python -m classification --params_path "$params_path" --val_every "$val_every" --gpu "$gpu" --cross_folder "$i" > $SHELL 2>&1
+    python -m classification --params_path "$params_path" --test --val_every "$val_every" --gpu "$gpu" --cross_folder "$i" > $SHELL 2>&1
 done

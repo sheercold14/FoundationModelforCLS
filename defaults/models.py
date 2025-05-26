@@ -488,7 +488,7 @@ class Ymodel_DINO_Text(BaseModel):
         self.text_encoder = TextEncoder(out_channels=768)
         
         # self.mm_text = nn.Sequential(*[nn.Linear(self.size*4, self.size), nn.ReLU(), nn.Linear(self.size, self.size), nn.ReLU()])
-        self.mm = nn.Sequential(*[nn.Linear(self.size*5, self.size), nn.ReLU(), nn.Linear(self.size, self.size), nn.ReLU()])
+        self.mm = nn.Sequential(*[nn.Linear(self.size*6, self.size), nn.ReLU(), nn.Linear(self.size, self.size), nn.ReLU()])
         # self.mm = UniModule_Guided(768, nhead=8, dropout=0.25)
         self.classifier = nn.Linear(self.size, 2)      
         # send the wrapped model to the original model's GPU ID

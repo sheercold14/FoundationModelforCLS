@@ -718,6 +718,79 @@ class TUMOR_All_v1(BaseSet):
         # data_list = [{'img_path': img_path, 'label': label, 'dataset': self.name}
         #              for img_path, label in zip(img_paths, labels)]       
         return data  
+import ast
+class RGB_Thyroid(BaseSet):
+    img_channels = 3
+    is_multiclass = True
+    task = 'classification'
+    mean = [0.485, 0.456, 0.406]
+    std = [0.229, 0.224, 0.225] 
+    int_to_labels = {
+        0: 'benign',
+        1: 'malignant',
+    }
+    target_metric = 'roc_auc'
+    knn_nhood = 5
+    n_classes = len(int_to_labels)
+    labels_to_int = {val: key for key, val in int_to_labels.items()}
+    
+    def __init__(self, dataset_params, mode='train', folder=None):
+        self.attr_from_dict(dataset_params)
+        self.mode = mode
+        self.val_folder = folder
+        self.data = self.get_data_as_list()
+        self.transform, self.resizing = self.get_transforms()
+        
+    def get_data_as_list(self):
+        data_list = []
+        datainfo = [json.loads(q) for q in open(os.path.expanduser('/data/lishichao/project/Foundation-Medical/data/v1/RGB_thyroid.jsonl'))] 
+        data = [{'img_path': datainfo[i]['image'], 'label': self.labels_to_int[datainfo[i]['label']],'split':datainfo[i]['split']} for i in range(len(datainfo))]
+
+        folder_list = ['0','1','2']
+        
+        if '[' not in self.val_folder:
+            train_list =  [x for x in folder_list if x != self.val_folder]
+            train_idxs = [i for i in range(len(data)) if data[i]["split"] in train_list]
+            val_idxs = [i for i in range(len(data)) if data[i]["split"] in [str(self.val_folder)]]    
+            test_idxs = [i for i in range(len(data)) if data[i]["split"] in [str(self.val_folder)]]
+        else:
+            self.val_folder = ast.literal_eval(self.val_folder)
+            train_list =  [int(x) for x in folder_list if x not in self.val_folder]
+            train_idxs = [i for i in range(len(data)) if int(data[i]["split"]) in train_list]
+            val_idxs = [i for i in range(len(data)) if int(data[i]["split"]) in self.val_folder]   
+            test_idxs = [i for i in range(len(data)) if int(data[i]["split"]) in self.val_folder]
+           
+        if self.mode == 'train':
+            data = [data[i] for i in train_idxs]
+        elif self.mode in ['val', 'eval']:
+            data = [data[i] for i in val_idxs]
+        else:
+            data = [data[i] for i in test_idxs]
+    
+        return data 
+    def __getitem__(self, idx): 
+        root_path = '/data/lishichao/data/hospital_organ/Thyroid_RGB_labeled'
+        img_path = os.path.join(root_path,self.data[idx]['img_path'])
+        label = torch.as_tensor(self.data[idx]['label'])    
+        img = self.get_x(img_path)
+
+        if self.resizing is not None:
+            img = self.resizing(img)
+
+        if self.transform is not None:
+            if isinstance(self.transform, list):
+                img = [tr(img) for tr in self.transform]
+            else:
+                if self.is_multi_crop:
+                    img = self.multi_crop_aug(img, self.transform)
+                else:
+                    img = [self.transform(img) for _ in range(self.num_augmentations)]
+            img = img[0] if len(img) == 1 and isinstance(img, list) else img      
+        if self.text_branch:
+            return img, label, text
+        else:
+            return img, label
+
 class Camelyon(BaseSet):
     
     img_channels = 3

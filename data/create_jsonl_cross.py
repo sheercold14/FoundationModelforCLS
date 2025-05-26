@@ -1,9 +1,11 @@
-path = '/data/lishichao/data/hospital_organ/hospital_3/quality/Thyroid_set2'
+path = '/data/lishichao/data/hospital_organ/Thyroid_RGB_labeled'
+# path2 = '/data/lishichao/data/hospital_organ/hospital3_organ_merged'
+# path2 = '/data/lishichao/data/hospital_organ/organ_202411/Thyroid'
 import os
 import os.path as osp
 import random
 import json
-json_path = '/data/lishichao/project/Foundation-Medical/data/v2/thyroid_3_quality_2.jsonl'
+json_path = '/data/lishichao/project/Foundation-Medical/data/v1/RGB_thyroid.jsonl'
 img_list = os.listdir(path)
 random.shuffle(img_list)
 # random.shuffle(img_folder_list)
@@ -13,7 +15,7 @@ random.shuffle(img_list)
 label_dict = {'N':'benign','C':'malignant','n':'benign','c':'malignant'}
 data_list = []
 # 将数据分为 5 折
-folds = 5
+folds = 3
 fold_size = len(img_list) // folds
 data_list = []
 

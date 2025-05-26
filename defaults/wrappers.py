@@ -450,7 +450,10 @@ class DefaultWrapper:
             "TUMOR_thyroid_clean_save_val": TUMOR_Thyroid_clean_save_val,
             "TUMOR_Thyroid_3_Text":TUMOR_Thyroid_3_Text,
             "TUMOR_Thyroid_3_Text_quality":TUMOR_Thyroid_3_Text_quality,
-            "TUMOR_Thyroid_3_202411": TUMOR_Thyroid_3_202411
+            "TUMOR_Thyroid_3_202411": TUMOR_Thyroid_3_202411,
+            "Hospital_Organ_Multilabel":Hospital_Organ_Multilabel,
+            "Hospital_Thyroid": Hospital_Thyroid,
+            "RGB_Thyroid":RGB_Thyroid
              
               
             }

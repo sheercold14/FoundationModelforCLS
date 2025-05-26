@@ -1,0 +1,749 @@
+{"image": "Scalp_1560916_2_N.png", "label": "benign", "split": "0"}
+{"image": "Thyroid_1567267_6_C.png", "label": "malignant", "split": "1"}
+{"image": "Stomach_1561547_1_N.png", "label": "benign", "split": "2"}
+{"image": "Uterus_1568947_2_N.jpg", "label": "benign", "split": "3"}
+{"image": "Lymph Nodes_1563735_5_C.jpg", "label": "malignant", "split": "4"}
+{"image": "Lymph Nodes_1559582_4_N.jpg", "label": "benign", "split": "0"}
+{"image": "Breast_1567422_1_C.png", "label": "malignant", "split": "1"}
+{"image": "Annex_1568709_1_C.jpg", "label": "malignant", "split": "2"}
+{"image": "Thyroid_1566043_2_C.jpg", "label": "malignant", "split": "3"}
+{"image": "Ovary_1567547_1_N.jpg", "label": "benign", "split": "4"}
+{"image": "Thyroid_1561706_2_N.png", "label": "benign", "split": "0"}
+{"image": "Stomach_1568888_1_N.jpg", "label": "benign", "split": "1"}
+{"image": "Lung_1564006_3_C.jpg", "label": "malignant", "split": "2"}
+{"image": "Thyroid_1568940_2_C.png", "label": "malignant", "split": "3"}
+{"image": "1492030_C-W1.jpg", "label": "malignant", "split": "4"}
+{"image": "Ovary_1560247_1_N.png", "label": "benign", "split": "0"}
+{"image": "1478815_N-W1.jpg", "label": "benign", "split": "1"}
+{"image": "Breast_1558881_11_C.jpg", "label": "malignant", "split": "2"}
+{"image": "1491204_N-W1.jpg", "label": "benign", "split": "3"}
+{"image": "Breast_1565899_1_N.jpg", "label": "benign", "split": "4"}
+{"image": "Ovary_1559259_1_N.jpg", "label": "benign", "split": "0"}
+{"image": "Ovary_1565914_1_N.jpg", "label": "benign", "split": "1"}
+{"image": "Thyroid_1559538_4_C.jpg", "label": "malignant", "split": "2"}
+{"image": "Thyroid_1566853_2_C.png", "label": "malignant", "split": "3"}
+{"image": "1477570_C-W1.jpg", "label": "malignant", "split": "4"}
+{"image": "Thyroid_1567267_3_C.png", "label": "malignant", "split": "0"}
+{"image": "1497245_N-W1.jpg", "label": "benign", "split": "1"}
+{"image": "Thyroid_1561626_1_C.png", "label": "malignant", "split": "2"}
+{"image": "Stomach_1567085_1_C.jpg", "label": "malignant", "split": "3"}
+{"image": "Thyroid_1559376_3_C.png", "label": "malignant", "split": "4"}
+{"image": "Lymph Nodes_1561425_9_N.png", "label": "benign", "split": "0"}
+{"image": "Thyroid_1559538_10_C.jpg", "label": "malignant", "split": "1"}
+{"image": "1498115_N-W1.jpg", "label": "benign", "split": "2"}
+{"image": "1477215_C-W1.jpg", "label": "malignant", "split": "3"}
+{"image": "Thyroid_1566257_3_C.jpg", "label": "malignant", "split": "4"}
+{"image": "1506134_C-W1.jpg", "label": "malignant", "split": "0"}
+{"image": "Breast_1558881_2_C.jpg", "label": "malignant", "split": "1"}
+{"image": "Perineum_1560091_11_C.png", "label": "malignant", "split": "2"}
+{"image": "Thyroid_1561507_1_N.png", "label": "benign", "split": "3"}
+{"image": "Thyroid_1564242_5_N.jpg", "label": "benign", "split": "4"}
+{"image": "Uterus_1567072_1_C.jpg", "label": "malignant", "split": "0"}
+{"image": "Thyroid_1568725_2_C.png", "label": "malignant", "split": "1"}
+{"image": "Thyroid_1559538_6_C.jpg", "label": "malignant", "split": "2"}
+{"image": "Uterine Cavity_1560234_1_N.png", "label": "benign", "split": "3"}
+{"image": "Nose_1561669_3_C.png", "label": "malignant", "split": "4"}
+{"image": "Lymph Nodes_1561239_11_N.png", "label": "benign", "split": "0"}
+{"image": "Lymph Nodes_1559027_2_N.jpg", "label": "benign", "split": "1"}
+{"image": "Thyroid_1564224_2_N.jpg", "label": "benign", "split": "2"}
+{"image": "Uterine Cavity_1562160_1_N.png", "label": "benign", "split": "3"}
+{"image": "Breast_1563133_2_C.jpg", "label": "malignant", "split": "4"}
+{"image": "1508104_N-W1.jpg", "label": "benign", "split": "0"}
+{"image": "Lymph Nodes_1560183_5_N.png", "label": "benign", "split": "1"}
+{"image": "1507684_N-W1.jpg", "label": "benign", "split": "2"}
+{"image": "1487675_C-W1.jpg", "label": "malignant", "split": "3"}
+{"image": "1498755_N-W1.jpg", "label": "benign", "split": "4"}
+{"image": "Uterus_1564792_2_N.jpg", "label": "benign", "split": "0"}
+{"image": "1499091_N-W1.jpg", "label": "benign", "split": "1"}
+{"image": "Breast_1559648_9_C.jpg", "label": "malignant", "split": "2"}
+{"image": "Annex_1565887_1_C.jpg", "label": "malignant", "split": "3"}
+{"image": "Paratumorial Tissue_1561379_2_N.png", "label": "benign", "split": "4"}
+{"image": "Annex_1564825_1_C.jpg", "label": "malignant", "split": "0"}
+{"image": "Thyroid_1568786_1_C.png", "label": "malignant", "split": "1"}
+{"image": "Annex_1569976_1_C.jpg", "label": "malignant", "split": "2"}
+{"image": "Thyroid_1563396_1_N.jpg", "label": "benign", "split": "3"}
+{"image": "Cheek_1561624_2_N.png", "label": "benign", "split": "4"}
+{"image": "1478523_C-W1.jpg", "label": "malignant", "split": "0"}
+{"image": "Ovary_1568246_3_N.png", "label": "benign", "split": "1"}
+{"image": "Thyroid_1563578_2_N.jpg", "label": "benign", "split": "2"}
+{"image": "1507484_N-W1.jpg", "label": "benign", "split": "3"}
+{"image": "Thyroid_1562920_4_C.jpg", "label": "malignant", "split": "4"}
+{"image": "Thyroid_1563578_1_N.jpg", "label": "benign", "split": "0"}
+{"image": "Thyroid_1560439_1_C.png", "label": "malignant", "split": "1"}
+{"image": "Uterus_1564225_2_C.jpg", "label": "malignant", "split": "2"}
+{"image": "Stomach_1561547_7_N.png", "label": "benign", "split": "3"}
+{"image": "Lung_1560233_2_C.png", "label": "malignant", "split": "4"}
+{"image": "1492094_C-W1.jpg", "label": "malignant", "split": "0"}
+{"image": "Thyroid_1560439_2_C.png", "label": "malignant", "split": "1"}
+{"image": "1480210_N-W1.jpg", "label": "benign", "split": "2"}
+{"image": "Lymph Nodes_1561239_12_N.png", "label": "benign", "split": "3"}
+{"image": "1507234B_N-W1.jpg", "label": "benign", "split": "4"}
+{"image": "Thyroid_1566480_6_C.jpg", "label": "malignant", "split": "0"}
+{"image": "Lung_1561273_1_C.png", "label": "malignant", "split": "1"}
+{"image": "Thyroid_1564932_3_C.jpg", "label": "malignant", "split": "2"}
+{"image": "Lymph Nodes_1559027_6_N.jpg", "label": "benign", "split": "3"}
+{"image": "Thyroid_1559024_1_N.jpg", "label": "benign", "split": "4"}
+{"image": "Thyroid_1568645_3_C.png", "label": "malignant", "split": "0"}
+{"image": "Thyroid_1561453_1_N.png", "label": "benign", "split": "1"}
+{"image": "Thyroid_1562876_1_C.jpg", "label": "malignant", "split": "2"}
+{"image": "Annex_1569976_2_C.jpg", "label": "malignant", "split": "3"}
+{"image": "1503209_N-W1.jpg", "label": "benign", "split": "4"}
+{"image": "Breast_1558881_13_C.jpg", "label": "malignant", "split": "0"}
+{"image": "Ovary_1563108_1_N.jpg", "label": "benign", "split": "1"}
+{"image": "1473897B_N-W1.jpg", "label": "benign", "split": "2"}
+{"image": "Uterus_1567084_4_N.png", "label": "benign", "split": "3"}
+{"image": "Thyroid_1563775_1_C.jpg", "label": "malignant", "split": "4"}
+{"image": "Breast_1559648_1_C.jpg", "label": "malignant", "split": "0"}
+{"image": "1490065_C-W1.jpg", "label": "malignant", "split": "1"}
+{"image": "Thyroid_1562830_2_C.jpg", "label": "malignant", "split": "2"}
+{"image": "Thyroid_1559538_7_C.jpg", "label": "malignant", "split": "3"}
+{"image": "Lymph Nodes_1561239_6_N.png", "label": "benign", "split": "4"}
+{"image": "Breast_1559648_2_C.jpg", "label": "malignant", "split": "0"}
+{"image": "Lymph Nodes_1559027_1_N.jpg", "label": "benign", "split": "1"}
+{"image": "Colon_1563750_1_N.jpg", "label": "benign", "split": "2"}
+{"image": "Thyroid_1564242_4_N.jpg", "label": "benign", "split": "3"}
+{"image": "Annex_1568943_1_N.jpg", "label": "benign", "split": "4"}
+{"image": "Thyroid_1566480_3_C.jpg", "label": "malignant", "split": "0"}
+{"image": "Pelvic Cavity_1564986_1_C.jpg", "label": "malignant", "split": "1"}
+{"image": "Neck_1564199_1_N.jpg", "label": "benign", "split": "2"}
+{"image": "Lung_1568257_1_C.jpg", "label": "malignant", "split": "3"}
+{"image": "Thoracic_1561276_1_C.png", "label": "malignant", "split": "4"}
+{"image": "Thyroid_1566853_1_C.png", "label": "malignant", "split": "0"}
+{"image": "1503580_N-W1.jpg", "label": "benign", "split": "1"}
+{"image": "Breast_1558881_8_C.jpg", "label": "malignant", "split": "2"}
+{"image": "Thyroid_1569975_1_C.jpg", "label": "malignant", "split": "3"}
+{"image": "Breast_1559648_6_C.jpg", "label": "malignant", "split": "4"}
+{"image": "Stomach_1560248_2_C.png", "label": "malignant", "split": "0"}
+{"image": "Lymph Nodes_1563735_2_C.jpg", "label": "malignant", "split": "1"}
+{"image": "Scalp_1560916_1_N.png", "label": "benign", "split": "2"}
+{"image": "1505392_N-W1.jpg", "label": "benign", "split": "3"}
+{"image": "Thyroid_1564809_3_N.jpg", "label": "benign", "split": "4"}
+{"image": "Lymph Nodes_1559582_5_N.jpg", "label": "benign", "split": "0"}
+{"image": "Uterus_1563753_4_C.jpg", "label": "malignant", "split": "1"}
+{"image": "Annex_1569976_3_C.jpg", "label": "malignant", "split": "2"}
+{"image": "Lymph Nodes_1561239_9_N.png", "label": "benign", "split": "3"}
+{"image": "1503763_C-W1.jpg", "label": "malignant", "split": "4"}
+{"image": "Annex_1565887_3_C.jpg", "label": "malignant", "split": "0"}
+{"image": "Thyroid_1563579_1_C.jpg", "label": "malignant", "split": "1"}
+{"image": "Ovary_1568254_1_N.png", "label": "benign", "split": "2"}
+{"image": "Stomach_1560455_4_N.png", "label": "benign", "split": "3"}
+{"image": "Margins_1561675_2_N.png", "label": "benign", "split": "4"}
+{"image": "Ovary_1567547_2_N.jpg", "label": "benign", "split": "0"}
+{"image": "Pelvic Cavity_1559986_2_N.png", "label": "benign", "split": "1"}
+{"image": "Thyroid_1563396_2_N.jpg", "label": "benign", "split": "2"}
+{"image": "Thyroid_1562919_1_N.jpg", "label": "benign", "split": "3"}
+{"image": "Lymph Nodes_1559027_9_N.jpg", "label": "benign", "split": "4"}
+{"image": "Peritoneum_1560338_2_N.png", "label": "benign", "split": "0"}
+{"image": "1477251_N-W1.jpg", "label": "benign", "split": "1"}
+{"image": "Annex_1560435_2_N.png", "label": "benign", "split": "2"}
+{"image": "Lymph Nodes_1559027_4_N.jpg", "label": "benign", "split": "3"}
+{"image": "Lymph Nodes_1559582_12_N.jpg", "label": "benign", "split": "4"}
+{"image": "Uterus_1568947_1_N.jpg", "label": "benign", "split": "0"}
+{"image": "Thyroid_1559910_3_N.png", "label": "benign", "split": "1"}
+{"image": "Uterus_1567294_3_N.png", "label": "benign", "split": "2"}
+{"image": "Perineum_1560091_4_C.png", "label": "malignant", "split": "3"}
+{"image": "Kidney_1563055_1_N.jpg", "label": "benign", "split": "4"}
+{"image": "1500545A_C-W1.jpg", "label": "malignant", "split": "0"}
+{"image": "Thyroid_1566809_5_N.png", "label": "benign", "split": "1"}
+{"image": "1507410_C-W1.jpg", "label": "malignant", "split": "2"}
+{"image": "Breast_1558881_15_C.jpg", "label": "malignant", "split": "3"}
+{"image": "Eye Socket_1560917_1_N.png", "label": "benign", "split": "4"}
+{"image": "1479894_C-W1.jpg", "label": "malignant", "split": "0"}
+{"image": "Thyroid_1564809_4_N.jpg", "label": "benign", "split": "1"}
+{"image": "Parathyroid Gland_1567363_1_N.jpg", "label": "benign", "split": "2"}
+{"image": "Stomach_1561547_4_N.png", "label": "benign", "split": "3"}
+{"image": "Thyroid_1565667_1_N.jpg", "label": "benign", "split": "4"}
+{"image": "Thyroid_1562899_1_C.jpg", "label": "malignant", "split": "0"}
+{"image": "Lung_1560233_1_C.png", "label": "malignant", "split": "1"}
+{"image": "Annex_1560410_1_C.png", "label": "malignant", "split": "2"}
+{"image": "Lung_1560436_2_C.png", "label": "malignant", "split": "3"}
+{"image": "Annex_1561994_1_N.png", "label": "benign", "split": "4"}
+{"image": "1479485_C-W1.jpg", "label": "malignant", "split": "0"}
+{"image": "Lymph Nodes_1561239_1_N.png", "label": "benign", "split": "1"}
+{"image": "1507234A_C-W1.jpg", "label": "malignant", "split": "2"}
+{"image": "Sellar Area_1560092_1_N.png", "label": "benign", "split": "3"}
+{"image": "Stomach_1559918_1_N.png", "label": "benign", "split": "4"}
+{"image": "Breast_1558881_1_C.jpg", "label": "malignant", "split": "0"}
+{"image": "1500285_N-W1.jpg", "label": "benign", "split": "1"}
+{"image": "Thyroid_1561677_1_N.png", "label": "benign", "split": "2"}
+{"image": "Thyroid_1566930_1_C.png", "label": "malignant", "split": "3"}
+{"image": "Lymph Nodes_1561425_1_N.png", "label": "benign", "split": "4"}
+{"image": "1475652_C-W1.jpg", "label": "malignant", "split": "0"}
+{"image": "Uterus_1562916_2_N.jpg", "label": "benign", "split": "1"}
+{"image": "Thyroid_1567349_2_C.png", "label": "malignant", "split": "2"}
+{"image": "Nose_1561628_4_N.png", "label": "benign", "split": "3"}
+{"image": "Breast_1559846_7_C.png", "label": "malignant", "split": "4"}
+{"image": "Lung_1562161_1_C.png", "label": "malignant", "split": "0"}
+{"image": "Lymph Nodes_1559027_14_N.jpg", "label": "benign", "split": "1"}
+{"image": "1500947_N-W1.jpg", "label": "benign", "split": "2"}
+{"image": "Stomach_1560181_3_C.png", "label": "malignant", "split": "3"}
+{"image": "Breast_1560090_2_C.png", "label": "malignant", "split": "4"}
+{"image": "1504269_C-W1.jpg", "label": "malignant", "split": "0"}
+{"image": "1476350_N-W1.jpg", "label": "benign", "split": "1"}
+{"image": "Perineum_1560091_3_C.png", "label": "malignant", "split": "2"}
+{"image": "1497059_N-W1.jpg", "label": "benign", "split": "3"}
+{"image": "Frontoparietal_1561063_1_C.png", "label": "malignant", "split": "4"}
+{"image": "Thyroid_1566480_1_C.jpg", "label": "malignant", "split": "0"}
+{"image": "Thyroid_1564231_1_N.jpg", "label": "benign", "split": "1"}
+{"image": "Thyroid_1569005_1_C.png", "label": "malignant", "split": "2"}
+{"image": "1500081B_C-W1.jpg", "label": "malignant", "split": "3"}
+{"image": "Lymph Nodes_1561425_3_N.png", "label": "benign", "split": "4"}
+{"image": "1474073_N-W1.jpg", "label": "benign", "split": "0"}
+{"image": "Thyroid_1564222_2_N.jpg", "label": "benign", "split": "1"}
+{"image": "1495172_N-W1.jpg", "label": "benign", "split": "2"}
+{"image": "1506365_N-W1.jpg", "label": "benign", "split": "3"}
+{"image": "Lung_1560436_3_C.png", "label": "malignant", "split": "4"}
+{"image": "Lymph Nodes_1559582_13_N.jpg", "label": "benign", "split": "0"}
+{"image": "Breast_1559648_4_C.jpg", "label": "malignant", "split": "1"}
+{"image": "Thyroid_1564932_1_C.jpg", "label": "malignant", "split": "2"}
+{"image": "Uterus_1560623_1_N.png", "label": "benign", "split": "3"}
+{"image": "Stomach_1560455_3_N.png", "label": "benign", "split": "4"}
+{"image": "Thyroid_1562920_1_C.jpg", "label": "malignant", "split": "0"}
+{"image": "Annex_1560410_2_C.png", "label": "malignant", "split": "1"}
+{"image": "Thyroid_1559538_12_C.jpg", "label": "malignant", "split": "2"}
+{"image": "1493670_C-W1.jpg", "label": "malignant", "split": "3"}
+{"image": "Lymph Nodes_1559027_13_N.jpg", "label": "benign", "split": "4"}
+{"image": "1498794_N-W1.jpg", "label": "benign", "split": "0"}
+{"image": "Pelvic Cavity_1559986_4_N.png", "label": "benign", "split": "1"}
+{"image": "Uterus_1567084_1_N.png", "label": "benign", "split": "2"}
+{"image": "Breast_1565001_1_N.jpg", "label": "benign", "split": "3"}
+{"image": "Lung_1561708_1_C.png", "label": "malignant", "split": "4"}
+{"image": "Lung_1562157_1_C.png", "label": "malignant", "split": "0"}
+{"image": "Lymph Nodes_1559027_8_N.jpg", "label": "benign", "split": "1"}
+{"image": "Stomach_1563819_1_C.jpg", "label": "malignant", "split": "2"}
+{"image": "1477286_C-W1.jpg", "label": "malignant", "split": "3"}
+{"image": "Lung_1561991_1_N.png", "label": "benign", "split": "4"}
+{"image": "Uterus_1560623_4_N.png", "label": "benign", "split": "0"}
+{"image": "Breast_1558881_4_C.jpg", "label": "malignant", "split": "1"}
+{"image": "Thyroid_1559217_1_N.jpg", "label": "benign", "split": "2"}
+{"image": "Breast_1566910_1_N.png", "label": "benign", "split": "3"}
+{"image": "1496909_N-W1.jpg", "label": "benign", "split": "4"}
+{"image": "Thyroid_1559558_3_C.jpg", "label": "malignant", "split": "0"}
+{"image": "Uterus_1567294_1_N.png", "label": "benign", "split": "1"}
+{"image": "Thyroid_1567267_8_C.png", "label": "malignant", "split": "2"}
+{"image": "Thyroid_1570003_3_C.jpg", "label": "malignant", "split": "3"}
+{"image": "Thyroid_1567267_5_C.png", "label": "malignant", "split": "4"}
+{"image": "Breast_1558881_3_C.jpg", "label": "malignant", "split": "0"}
+{"image": "Ovary_1559259_2_N.jpg", "label": "benign", "split": "1"}
+{"image": "Biliary Bowels_1563295_1_N.jpg", "label": "benign", "split": "2"}
+{"image": "Penis_1569974_1_C.jpg", "label": "malignant", "split": "3"}
+{"image": "Thyroid_1564761_1_C.jpg", "label": "malignant", "split": "4"}
+{"image": "Breast_1566937_1_N.png", "label": "benign", "split": "0"}
+{"image": "1507708_N-W1.jpg", "label": "benign", "split": "1"}
+{"image": "1505973_N-W1.jpg", "label": "benign", "split": "2"}
+{"image": "Lymph Nodes_1559582_2_N.jpg", "label": "benign", "split": "3"}
+{"image": "Thyroid_1563970_1_C.jpg", "label": "malignant", "split": "4"}
+{"image": "Lung_1566760_1_C.jpg", "label": "malignant", "split": "0"}
+{"image": "1474671_N-W1.jpg", "label": "benign", "split": "1"}
+{"image": "Thyroid_1568298_2_C.png", "label": "malignant", "split": "2"}
+{"image": "Lymph Nodes_1564118_2_N.jpg", "label": "benign", "split": "3"}
+{"image": "Ovary_1567113_2_C.jpg", "label": "malignant", "split": "4"}
+{"image": "1505229_N-W1.jpg", "label": "benign", "split": "0"}
+{"image": "Uterine Cavity_1562160_2_N.png", "label": "benign", "split": "1"}
+{"image": "Lung_1560611_1_C.png", "label": "malignant", "split": "2"}
+{"image": "Lymph Nodes_1561425_2_N.png", "label": "benign", "split": "3"}
+{"image": "Uterus_1563751_1_N.jpg", "label": "benign", "split": "4"}
+{"image": "1507467_N-W1.jpg", "label": "benign", "split": "0"}
+{"image": "Cheek_1561624_4_N.png", "label": "benign", "split": "1"}
+{"image": "Thyroid_1564226_3_C.jpg", "label": "malignant", "split": "2"}
+{"image": "Lung_1559917_1_C.png", "label": "malignant", "split": "3"}
+{"image": "Subcutaneous_1571603_2_N.jpg", "label": "benign", "split": "4"}
+{"image": "Thyroid_1559244_1_C.jpg", "label": "malignant", "split": "0"}
+{"image": "Thyroid_1559910_1_N.png", "label": "benign", "split": "1"}
+{"image": "1507866_N-W1.jpg", "label": "benign", "split": "2"}
+{"image": "Breast_1558881_9_C.jpg", "label": "malignant", "split": "3"}
+{"image": "Thyroid_1562919_2_N.jpg", "label": "benign", "split": "4"}
+{"image": "Breast_1560090_4_C.png", "label": "malignant", "split": "0"}
+{"image": "Lung_1566962_1_C.jpg", "label": "malignant", "split": "1"}
+{"image": "Ovary_1559259_3_N.jpg", "label": "benign", "split": "2"}
+{"image": "Thyroid_1567721_1_N.png", "label": "benign", "split": "3"}
+{"image": "1503435_C-W1.jpg", "label": "malignant", "split": "4"}
+{"image": "Lung_1567260_1_C.jpg", "label": "malignant", "split": "0"}
+{"image": "Uterus_1567668_1_N.png", "label": "benign", "split": "1"}
+{"image": "Lymph Nodes_1563735_4_C.jpg", "label": "malignant", "split": "2"}
+{"image": "Thyroid_1567349_1_C.png", "label": "malignant", "split": "3"}
+{"image": "Breast_1565454_1_N.jpg", "label": "benign", "split": "4"}
+{"image": "Stomach_1561547_3_N.png", "label": "benign", "split": "0"}
+{"image": "Rectum_1561436_1_N.png", "label": "benign", "split": "1"}
+{"image": "Breast_1567422_2_C.png", "label": "malignant", "split": "2"}
+{"image": "Maxillary Sinus_1561435_4_N.png", "label": "benign", "split": "3"}
+{"image": "Breast_1564010_1_N.jpg", "label": "benign", "split": "4"}
+{"image": "Ear_1560352_1_N.png", "label": "benign", "split": "0"}
+{"image": "Uterus_1558860_3_N.jpg", "label": "benign", "split": "1"}
+{"image": "Breast_1563133_1_C.jpg", "label": "malignant", "split": "2"}
+{"image": "Uterus_1558860_1_N.jpg", "label": "benign", "split": "3"}
+{"image": "Thyroid_1559376_2_C.jpg", "label": "malignant", "split": "4"}
+{"image": "Annex_1560825_1_N.png", "label": "benign", "split": "0"}
+{"image": "1500080_C-W1.jpg", "label": "malignant", "split": "1"}
+{"image": "Uterus_1567072_2_C.jpg", "label": "malignant", "split": "2"}
+{"image": "1499826_N-W1.jpg", "label": "benign", "split": "3"}
+{"image": "Uterus_1567084_5_N.png", "label": "benign", "split": "4"}
+{"image": "Thyroid_1564737_1_C.jpg", "label": "malignant", "split": "0"}
+{"image": "Ovary_1559259_5_N.jpg", "label": "benign", "split": "1"}
+{"image": "Uterus_1565633_2_N.jpg", "label": "benign", "split": "2"}
+{"image": "1478808_C-W1.jpg", "label": "malignant", "split": "3"}
+{"image": "Cheek_1561624_1_N.png", "label": "benign", "split": "4"}
+{"image": "1482194_C-W1.jpg", "label": "malignant", "split": "0"}
+{"image": "Lung_1561993_1_N.png", "label": "benign", "split": "1"}
+{"image": "Thyroid_1568939_2_N.jpg", "label": "benign", "split": "2"}
+{"image": "Thyroid_1559452_1_C.jpg", "label": "malignant", "split": "3"}
+{"image": "1492844_C-W1.jpg", "label": "malignant", "split": "4"}
+{"image": "Thyroid_1564638_2_C.jpg", "label": "malignant", "split": "0"}
+{"image": "1508469_N-W1.jpg", "label": "benign", "split": "1"}
+{"image": "Uterus_1567294_2_N.png", "label": "benign", "split": "2"}
+{"image": "Thyroid_1562920_3_C.jpg", "label": "malignant", "split": "3"}
+{"image": "Appendix_1562980_1_N.jpg", "label": "benign", "split": "4"}
+{"image": "Lymph Nodes_1559027_7_N.jpg", "label": "benign", "split": "0"}
+{"image": "Breast_1559071_7_C.jpg", "label": "malignant", "split": "1"}
+{"image": "Lung_1560611_2_C.png", "label": "malignant", "split": "2"}
+{"image": "Nose_1560094_1_C.png", "label": "malignant", "split": "3"}
+{"image": "Thyroid_1570003_2_C.jpg", "label": "malignant", "split": "4"}
+{"image": "Uterus_1568712_1_N.jpg", "label": "benign", "split": "0"}
+{"image": "Breast_1560090_5_C.png", "label": "malignant", "split": "1"}
+{"image": "Kidney_1561121_1_N.png", "label": "benign", "split": "2"}
+{"image": "Lymph Nodes_1559027_3_N.jpg", "label": "benign", "split": "3"}
+{"image": "Uterus_1564792_1_N.jpg", "label": "benign", "split": "4"}
+{"image": "Lung_1562157_3_C.png", "label": "malignant", "split": "0"}
+{"image": "Uterus_1565879_2_N.jpg", "label": "benign", "split": "1"}
+{"image": "1480070B_C-W1.jpg", "label": "malignant", "split": "2"}
+{"image": "1503960_N-W1.jpg", "label": "benign", "split": "3"}
+{"image": "Thyroid_1566480_2_1_C.jpg", "label": "malignant", "split": "4"}
+{"image": "Annex_1568943_2_N.jpg", "label": "benign", "split": "0"}
+{"image": "Breast_1559846_13_C.png", "label": "malignant", "split": "1"}
+{"image": "Breast_1566931_1_N.png", "label": "benign", "split": "2"}
+{"image": "Lung_1567552_2_N.jpg", "label": "benign", "split": "3"}
+{"image": "Lymph Nodes_1559582_9_N.jpg", "label": "benign", "split": "4"}
+{"image": "Stomach_1560181_1_C.png", "label": "malignant", "split": "0"}
+{"image": "Uterus_1564230_2_N.jpg", "label": "benign", "split": "1"}
+{"image": "1490758_C-W1.jpg", "label": "malignant", "split": "2"}
+{"image": "1488562_C-W1.jpg", "label": "malignant", "split": "3"}
+{"image": "Ovary_1568254_3_N.png", "label": "benign", "split": "4"}
+{"image": "Lung_1567552_1_N.jpg", "label": "benign", "split": "0"}
+{"image": "Lymph Nodes_1559582_10_N.jpg", "label": "benign", "split": "1"}
+{"image": "Annex_1568709_2_C.jpg", "label": "malignant", "split": "2"}
+{"image": "Breast_1560246_1_N.png", "label": "benign", "split": "3"}
+{"image": "Uterus_1565879_1_N.jpg", "label": "benign", "split": "4"}
+{"image": "1506373A_C-W1.jpg", "label": "malignant", "split": "0"}
+{"image": "1505286_N-W1.jpg", "label": "benign", "split": "1"}
+{"image": "1489671_C-W1.jpg", "label": "malignant", "split": "2"}
+{"image": "Lung_1562159_1_C.png", "label": "malignant", "split": "3"}
+{"image": "Thyroid_1568256_2_N.png", "label": "benign", "split": "4"}
+{"image": "1505064_N-W1.jpg", "label": "benign", "split": "0"}
+{"image": "Thyroid_1568940_1_C.png", "label": "malignant", "split": "1"}
+{"image": "Breast_1559846_4_C.png", "label": "malignant", "split": "2"}
+{"image": "Thyroid_1566480_5_C.jpg", "label": "malignant", "split": "3"}
+{"image": "Thyroid_1562872_1_C.jpg", "label": "malignant", "split": "4"}
+{"image": "Breast_1564005_1_N.jpg", "label": "benign", "split": "0"}
+{"image": "Thyroid_1567090_2_N.png", "label": "benign", "split": "1"}
+{"image": "1504450_N-W1.jpg", "label": "benign", "split": "2"}
+{"image": "Breast_1559846_8_C.png", "label": "malignant", "split": "3"}
+{"image": "1505232_N-W1.jpg", "label": "benign", "split": "4"}
+{"image": "Uterus_1564230_1_N.jpg", "label": "benign", "split": "0"}
+{"image": "Omentum_1561240_2_C.png", "label": "malignant", "split": "1"}
+{"image": "Lung_1564223_1_C.jpg", "label": "malignant", "split": "2"}
+{"image": "Lung_1560436_1_C.png", "label": "malignant", "split": "3"}
+{"image": "Lung_1561673_1_C.png", "label": "malignant", "split": "4"}
+{"image": "Ovary_1564004_1_N.jpg", "label": "benign", "split": "0"}
+{"image": "Thyroid_1566809_2_N.png", "label": "benign", "split": "1"}
+{"image": "1481341_C-W1.jpg", "label": "malignant", "split": "2"}
+{"image": "1506138_N-W1.jpg", "label": "benign", "split": "3"}
+{"image": "Thyroid_1566809_4_N.png", "label": "benign", "split": "4"}
+{"image": "Thyroid_1559538_14_C.jpg", "label": "malignant", "split": "0"}
+{"image": "Lymph Nodes_1558725_2_C.jpg", "label": "malignant", "split": "1"}
+{"image": "Ovary_1566942_1_N.jpg", "label": "benign", "split": "2"}
+{"image": "1505106_N-W1.jpg", "label": "benign", "split": "3"}
+{"image": "Lung_1567342_2_C.jpg", "label": "malignant", "split": "4"}
+{"image": "Uterus_1564225_1_C.jpg", "label": "malignant", "split": "0"}
+{"image": "1504171_N-W1.jpg", "label": "benign", "split": "1"}
+{"image": "Lymph Nodes_1561239_3_N.png", "label": "benign", "split": "2"}
+{"image": "Nose_1561669_2_C.png", "label": "malignant", "split": "3"}
+{"image": "Cheek_1561624_3_N.png", "label": "benign", "split": "4"}
+{"image": "Thyroid_1564224_1_N.jpg", "label": "benign", "split": "0"}
+{"image": "1490076_C-W1.jpg", "label": "malignant", "split": "1"}
+{"image": "Uterus_1565633_1_N.jpg", "label": "benign", "split": "2"}
+{"image": "Ovary_1559449_1_N.jpg", "label": "benign", "split": "3"}
+{"image": "Stomach_1560181_2_C.png", "label": "malignant", "split": "4"}
+{"image": "Breast_1560090_3_C.png", "label": "malignant", "split": "0"}
+{"image": "Thyroid_1567267_7_C.png", "label": "malignant", "split": "1"}
+{"image": "Thyroid_1559910_2_N.png", "label": "benign", "split": "2"}
+{"image": "Thyroid_1558817_1_N.jpg", "label": "benign", "split": "3"}
+{"image": "1488981_C-W1.jpg", "label": "malignant", "split": "4"}
+{"image": "Thyroid_1569005_2_C.png", "label": "malignant", "split": "0"}
+{"image": "Lymph Nodes_1560183_1_N.png", "label": "benign", "split": "1"}
+{"image": "Lymph Nodes_1559027_15_N.jpg", "label": "benign", "split": "2"}
+{"image": "1480710_N-W1.jpg", "label": "benign", "split": "3"}
+{"image": "Thyroid_1563578_3_N.jpg", "label": "benign", "split": "4"}
+{"image": "Lymph Nodes_1564118_20_N.jpg", "label": "benign", "split": "0"}
+{"image": "Lymph Nodes_1561239_8_N.png", "label": "benign", "split": "1"}
+{"image": "Lymph Nodes_1561239_4_N.png", "label": "benign", "split": "2"}
+{"image": "Lung_1566959_1_C.jpg", "label": "malignant", "split": "3"}
+{"image": "Thyroid_1568645_2_C.png", "label": "malignant", "split": "4"}
+{"image": "1491443_C-W1.jpg", "label": "malignant", "split": "0"}
+{"image": "1476129_C-W1.jpg", "label": "malignant", "split": "1"}
+{"image": "Thyroid_1559538_8_C.jpg", "label": "malignant", "split": "2"}
+{"image": "Nose_1561628_3_N.png", "label": "benign", "split": "3"}
+{"image": "Lung_1561273_2_C.png", "label": "malignant", "split": "4"}
+{"image": "Thyroid_1562920_2_C.jpg", "label": "malignant", "split": "0"}
+{"image": "Uterus_1560178_1_N.png", "label": "benign", "split": "1"}
+{"image": "Uterus_1563753_1_C.jpg", "label": "malignant", "split": "2"}
+{"image": "Thyroid_1559538_2_C.jpg", "label": "malignant", "split": "3"}
+{"image": "Appendix_1567106_2_N.jpg", "label": "benign", "split": "4"}
+{"image": "1480236_N-W1.jpg", "label": "benign", "split": "0"}
+{"image": "Lung_1563749_1_C.jpg", "label": "malignant", "split": "1"}
+{"image": "Lymph Nodes_1559582_8_N.jpg", "label": "benign", "split": "2"}
+{"image": "Stomach_1571291_1_N.jpg", "label": "benign", "split": "3"}
+{"image": "Uterus_1563152_2_N.jpg", "label": "benign", "split": "4"}
+{"image": "1500545B_C-W1.jpg", "label": "malignant", "split": "0"}
+{"image": "Lymph Node_1568688_1_C.jpg", "label": "malignant", "split": "1"}
+{"image": "Thyroid_1564850_2_C.jpg", "label": "malignant", "split": "2"}
+{"image": "Breast_1558881_18_C.jpg", "label": "malignant", "split": "3"}
+{"image": "Breast_1560090_1_C.png", "label": "malignant", "split": "4"}
+{"image": "Nose_1561669_1_C.png", "label": "malignant", "split": "0"}
+{"image": "Annex_1560410_4_C.png", "label": "malignant", "split": "1"}
+{"image": "1503634_C-W1.jpg", "label": "malignant", "split": "2"}
+{"image": "Armpit_1566761_1_C.png", "label": "malignant", "split": "3"}
+{"image": "Stomach_1560455_2_N.png", "label": "benign", "split": "4"}
+{"image": "1474522_C-W1.jpg", "label": "malignant", "split": "0"}
+{"image": "Thyroid_1566043_3_C.jpg", "label": "malignant", "split": "1"}
+{"image": "Lymph Nodes_1559582_7_N.jpg", "label": "benign", "split": "2"}
+{"image": "1507058_N-W1.jpg", "label": "benign", "split": "3"}
+{"image": "Rectum_1561508_2_N.png", "label": "benign", "split": "4"}
+{"image": "Thyroid_1564638_1_C.jpg", "label": "malignant", "split": "0"}
+{"image": "Stomach_1571291_2_N.jpg", "label": "benign", "split": "1"}
+{"image": "Lymph Nodes_1559582_3_N.jpg", "label": "benign", "split": "2"}
+{"image": "Ovary_1568254_2_N.png", "label": "benign", "split": "3"}
+{"image": "Lung_1563987_1_C.jpg", "label": "malignant", "split": "4"}
+{"image": "Lymph Nodes_1558725_4_C.jpg", "label": "malignant", "split": "0"}
+{"image": "Lymph Nodes_1561425_7_N.png", "label": "benign", "split": "1"}
+{"image": "Lymph Nodes_1559027_10_N.jpg", "label": "benign", "split": "2"}
+{"image": "Stomach_1563819_2_C.jpg", "label": "malignant", "split": "3"}
+{"image": "Lymph Node_1568688_3_C.jpg", "label": "malignant", "split": "4"}
+{"image": "Thyroid_1564202_1_C.jpg", "label": "malignant", "split": "0"}
+{"image": "Stomach_1561547_5_N.png", "label": "benign", "split": "1"}
+{"image": "Gall Bladder_1563109_1_N.jpg", "label": "benign", "split": "2"}
+{"image": "Lymph Nodes_1560183_4_N.png", "label": "benign", "split": "3"}
+{"image": "1488254_C-W1.jpg", "label": "malignant", "split": "4"}
+{"image": "Annex_1567551_2_N.jpg", "label": "benign", "split": "0"}
+{"image": "Ovary_1559259_4_N.jpg", "label": "benign", "split": "1"}
+{"image": "Stomach_1561547_6_N.png", "label": "benign", "split": "2"}
+{"image": "Breast_1558881_17_C.png", "label": "malignant", "split": "3"}
+{"image": "1492390_C-W1.jpg", "label": "malignant", "split": "4"}
+{"image": "Thyroid_1559376_1_C.jpg", "label": "malignant", "split": "0"}
+{"image": "1487693_C-W1.jpg", "label": "malignant", "split": "1"}
+{"image": "1481151_C-W1.jpg", "label": "malignant", "split": "2"}
+{"image": "Breast_1558881_6_C.jpg", "label": "malignant", "split": "3"}
+{"image": "Perineum_1560091_6_C.png", "label": "malignant", "split": "4"}
+{"image": "Lymph Nodes_1559582_11_N.jpg", "label": "benign", "split": "0"}
+{"image": "Thyroid_1564498_1_C.jpg", "label": "malignant", "split": "1"}
+{"image": "1498477_C-W1.jpg", "label": "malignant", "split": "2"}
+{"image": "Annex_1564825_5_C.jpg", "label": "malignant", "split": "3"}
+{"image": "Ovary_1565914_2_N.jpg", "label": "benign", "split": "4"}
+{"image": "Nose_1564008_1_N.jpg", "label": "benign", "split": "0"}
+{"image": "Lung_1562157_5_C.png", "label": "malignant", "split": "1"}
+{"image": "Scalp_1560916_3_N.png", "label": "benign", "split": "2"}
+{"image": "Uterus_1558860_2_N.jpg", "label": "benign", "split": "3"}
+{"image": "Lymph Nodes_1558725_1_C.jpg", "label": "malignant", "split": "4"}
+{"image": "Breast_1558881_14_C.jpg", "label": "malignant", "split": "0"}
+{"image": "Uterus_1565665_3_N.jpg", "label": "benign", "split": "1"}
+{"image": "Annex_1559409_1_N.jpg", "label": "benign", "split": "2"}
+{"image": "Annex_1566900_1_N.png", "label": "benign", "split": "3"}
+{"image": "Thyroid_1559538_16_C.jpg", "label": "malignant", "split": "4"}
+{"image": "Stomach_1560597_1_C.png", "label": "malignant", "split": "0"}
+{"image": "Annex_1560410_3_C.png", "label": "malignant", "split": "1"}
+{"image": "Omentum_1561240_1_C.png", "label": "malignant", "split": "2"}
+{"image": "Appendix_1567106_1_N.jpg", "label": "benign", "split": "3"}
+{"image": "Ovary_1559449_2_N.jpg", "label": "benign", "split": "4"}
+{"image": "Breast_1559071_1_C.jpg", "label": "malignant", "split": "0"}
+{"image": "Breast_1564974_2_N.jpg", "label": "benign", "split": "1"}
+{"image": "Breast_1559648_7_C.jpg", "label": "malignant", "split": "2"}
+{"image": "Penis_1569974_2_C.jpg", "label": "malignant", "split": "3"}
+{"image": "1476527_C-W1.jpg", "label": "malignant", "split": "4"}
+{"image": "Lumps_1560078_1_C.png", "label": "malignant", "split": "0"}
+{"image": "Annex_1566484_1_N.jpg", "label": "benign", "split": "1"}
+{"image": "Annex_1566484_3_N.jpg", "label": "benign", "split": "2"}
+{"image": "Thyroid_1564990_2_C.jpg", "label": "malignant", "split": "3"}
+{"image": "Thyroid_1562830_1_C.jpg", "label": "malignant", "split": "4"}
+{"image": "Breast_1559648_5_C.jpg", "label": "malignant", "split": "0"}
+{"image": "Lung_1561992_1_C.png", "label": "malignant", "split": "1"}
+{"image": "Thyroid_1567361_1_C.png", "label": "malignant", "split": "2"}
+{"image": "Thyroid_1563579_2_C.jpg", "label": "malignant", "split": "3"}
+{"image": "Uterus_1562916_1_N.jpg", "label": "benign", "split": "4"}
+{"image": "Annex_1564825_3_C.jpg", "label": "malignant", "split": "0"}
+{"image": "Nose_1561669_5_C.png", "label": "malignant", "split": "1"}
+{"image": "1490000_N-W1.jpg", "label": "benign", "split": "2"}
+{"image": "Thyroid_1566257_2_C.jpg", "label": "malignant", "split": "3"}
+{"image": "Thyroid_1564809_2_N.jpg", "label": "benign", "split": "4"}
+{"image": "1503755_N-W1.jpg", "label": "benign", "split": "0"}
+{"image": "Thyroid_1561449_1_C.png", "label": "malignant", "split": "1"}
+{"image": "1504674_N-W1.jpg", "label": "benign", "split": "2"}
+{"image": "Nose_1560094_3_C.png", "label": "malignant", "split": "3"}
+{"image": "Thyroid_1559538_3_C.jpg", "label": "malignant", "split": "4"}
+{"image": "Nose_1560094_2_C.png", "label": "malignant", "split": "0"}
+{"image": "Thyroid_1566045_1_C.jpg", "label": "malignant", "split": "1"}
+{"image": "Uterus_1567084_2_N.png", "label": "benign", "split": "2"}
+{"image": "1507650_N-W1.jpg", "label": "benign", "split": "3"}
+{"image": "Thyroid_1559193_1_C.jpg", "label": "malignant", "split": "4"}
+{"image": "Lymph Nodes_1563735_3_C.jpg", "label": "malignant", "split": "0"}
+{"image": "Perineum_1560091_2_C.png", "label": "malignant", "split": "1"}
+{"image": "Thyroid_1568786_2_C.png", "label": "malignant", "split": "2"}
+{"image": "Thyroid_1568645_1_C.png", "label": "malignant", "split": "3"}
+{"image": "Breast_1558881_12_C.jpg", "label": "malignant", "split": "4"}
+{"image": "Vocal Cords_1567876_1_N.jpg", "label": "benign", "split": "0"}
+{"image": "Lung_1571318_1_N.jpg", "label": "benign", "split": "1"}
+{"image": "Breast_1558881_5_C.jpg", "label": "malignant", "split": "2"}
+{"image": "Lung_1564006_1_C.jpg", "label": "malignant", "split": "3"}
+{"image": "1476122_C-W1.jpg", "label": "malignant", "split": "4"}
+{"image": "Uterus_1563751_2_N.jpg", "label": "benign", "split": "0"}
+{"image": "Thyroid_1564850_1_C.jpg", "label": "malignant", "split": "1"}
+{"image": "Thyroid_1568298_1_C.png", "label": "malignant", "split": "2"}
+{"image": "Nose_1561669_4_C.png", "label": "malignant", "split": "3"}
+{"image": "1495808_N-W1.jpg", "label": "benign", "split": "4"}
+{"image": "Uterus_1560178_3_N.png", "label": "benign", "split": "1"}
+{"image": "Broad Ligament_1566941_1_N.png", "label": "benign", "split": "2"}
+{"image": "Lung_1568711_1_N.jpg", "label": "benign", "split": "3"}
+{"image": "1497689_N-W1.jpg", "label": "benign", "split": "4"}
+{"image": "Colon_1563750_2_N.jpg", "label": "benign", "split": "0"}
+{"image": "1480070A_N-W1.jpg", "label": "benign", "split": "1"}
+{"image": "1507970_N-W1.jpg", "label": "benign", "split": "2"}
+{"image": "1507415_N-W1.jpg", "label": "benign", "split": "3"}
+{"image": "Annex_1565887_5_C.jpg", "label": "malignant", "split": "4"}
+{"image": "Lung_1571318_2_N.jpg", "label": "benign", "split": "0"}
+{"image": "Lung_1571512_1_C.jpg", "label": "malignant", "split": "1"}
+{"image": "Thyroid_1559538_15_C.jpg", "label": "malignant", "split": "2"}
+{"image": "Lung_1561993_2_N.png", "label": "benign", "split": "3"}
+{"image": "Thyroid_1568710_1_N.jpg", "label": "benign", "split": "4"}
+{"image": "Thyroid_1567347_1_C.jpg", "label": "malignant", "split": "0"}
+{"image": "Perineum_1560091_5_C.png", "label": "malignant", "split": "1"}
+{"image": "Thyroid_1558876_2_N.jpg", "label": "benign", "split": "2"}
+{"image": "Lymph Nodes_1559027_12_N.jpg", "label": "benign", "split": "3"}
+{"image": "Appendix_1562980_3_N.jpg", "label": "benign", "split": "4"}
+{"image": "Thyroid_1566483_1_N.jpg", "label": "benign", "split": "0"}
+{"image": "1505764_N-W1.jpg", "label": "benign", "split": "1"}
+{"image": "Breast_1559846_9_C.png", "label": "malignant", "split": "2"}
+{"image": "Thyroid_1561626_2_C.png", "label": "malignant", "split": "3"}
+{"image": "Thoracic_1561272_1_N.png", "label": "benign", "split": "4"}
+{"image": "1499199_C-W1.jpg", "label": "malignant", "split": "0"}
+{"image": "Thyroid_1567301_2_C.png", "label": "malignant", "split": "1"}
+{"image": "Ovary_1567114_2_N.jpg", "label": "benign", "split": "2"}
+{"image": "Lymph Nodes_1559582_15_N.jpg", "label": "benign", "split": "3"}
+{"image": "Ovary_1560247_2_N.png", "label": "benign", "split": "4"}
+{"image": "Lung_1562158_1_C.png", "label": "malignant", "split": "0"}
+{"image": "1491226_C-W1.jpg", "label": "malignant", "split": "1"}
+{"image": "1479880A_C-W1.jpg", "label": "malignant", "split": "2"}
+{"image": "Lung_1571270_1_N.jpg", "label": "benign", "split": "3"}
+{"image": "1500085_N-W1.jpg", "label": "benign", "split": "4"}
+{"image": "Ovary_1568246_1_N.png", "label": "benign", "split": "0"}
+{"image": "Lung_1563754_1_C.jpg", "label": "malignant", "split": "1"}
+{"image": "Thyroid_1567301_3_C.png", "label": "malignant", "split": "2"}
+{"image": "Thyroid_1564226_1_C.jpg", "label": "malignant", "split": "3"}
+{"image": "Thyroid_1566939_1_N.png", "label": "benign", "split": "4"}
+{"image": "Lung_1562157_6_C.png", "label": "malignant", "split": "0"}
+{"image": "Uterus_1560623_3_N.png", "label": "benign", "split": "1"}
+{"image": "Thyroid_1567267_4_C.png", "label": "malignant", "split": "2"}
+{"image": "Breast_1560090_8_C.png", "label": "malignant", "split": "3"}
+{"image": "Uterus_1566758_1_N.png", "label": "benign", "split": "4"}
+{"image": "Uterus_1560184_1_N.png", "label": "benign", "split": "0"}
+{"image": "Lymph Nodes_1559027_5_N.jpg", "label": "benign", "split": "1"}
+{"image": "Breast_1565443_1_N.jpg", "label": "benign", "split": "2"}
+{"image": "1497473_C-W1.jpg", "label": "malignant", "split": "3"}
+{"image": "1490163_C-W1.jpg", "label": "malignant", "split": "4"}
+{"image": "Neck_1566928_1_N.jpg", "label": "benign", "split": "0"}
+{"image": "Nose_1561628_5_N.png", "label": "benign", "split": "1"}
+{"image": "Breast_1561274_1_N.png", "label": "benign", "split": "2"}
+{"image": "Stomach_1559918_2_N.png", "label": "benign", "split": "3"}
+{"image": "1508511_C-W1.jpg", "label": "malignant", "split": "4"}
+{"image": "Thyroid_1564222_1_N.jpg", "label": "benign", "split": "0"}
+{"image": "Breast_1558881_7_C.jpg", "label": "malignant", "split": "1"}
+{"image": "1505967_C-W1.jpg", "label": "malignant", "split": "2"}
+{"image": "Annex_1565887_2_C.jpg", "label": "malignant", "split": "3"}
+{"image": "1474823_N-W1.jpg", "label": "benign", "split": "4"}
+{"image": "Lymph Nodes_1561239_5_N.png", "label": "benign", "split": "0"}
+{"image": "Thyroid_1562927_1_C.jpg", "label": "malignant", "split": "1"}
+{"image": "Gall Bladder_1563109_2_N.jpg", "label": "benign", "split": "2"}
+{"image": "Thyroid_1566809_3_N.png", "label": "benign", "split": "3"}
+{"image": "Ovary_1568246_4_N.png", "label": "benign", "split": "4"}
+{"image": "Stomach_1563819_3_C.jpg", "label": "malignant", "split": "0"}
+{"image": "Uterus_1563152_1_N.jpg", "label": "benign", "split": "1"}
+{"image": "Thyroid_1568256_1_N.png", "label": "benign", "split": "2"}
+{"image": "Rectum_1561436_2_N.png", "label": "benign", "split": "3"}
+{"image": "Breast_1559846_2_C.png", "label": "malignant", "split": "4"}
+{"image": "Breast_1558881_16_C.png", "label": "malignant", "split": "0"}
+{"image": "1507015_N-W1.jpg", "label": "benign", "split": "1"}
+{"image": "1481405_N-W1.jpg", "label": "benign", "split": "2"}
+{"image": "1492520A_C-W1.jpg", "label": "malignant", "split": "3"}
+{"image": "Thyroid_1559244_3_C.jpg", "label": "malignant", "split": "4"}
+{"image": "Lung_1562159_2_C.png", "label": "malignant", "split": "0"}
+{"image": "1496375_C-W1.jpg", "label": "malignant", "split": "1"}
+{"image": "Breast_1559071_4_C.jpg", "label": "malignant", "split": "2"}
+{"image": "Ovary_1567113_1_C.jpg", "label": "malignant", "split": "3"}
+{"image": "Mediastinum_1568809_1_N.jpg", "label": "benign", "split": "4"}
+{"image": "1506373B_N-W1.jpg", "label": "benign", "split": "0"}
+{"image": "Thyroid_1564990_1_C.jpg", "label": "malignant", "split": "1"}
+{"image": "1505081_N-W1.jpg", "label": "benign", "split": "2"}
+{"image": "Lymph Nodes_1563735_1_C.jpg", "label": "malignant", "split": "3"}
+{"image": "Thyroid_1565660_1_N.jpg", "label": "benign", "split": "4"}
+{"image": "Uterus_1568314_2_C.png", "label": "malignant", "split": "0"}
+{"image": "Ovary_1561656_1_N.png", "label": "benign", "split": "1"}
+{"image": "Scalp_1560916_4_N.png", "label": "benign", "split": "2"}
+{"image": "1493712A_C-W1.jpg", "label": "malignant", "split": "3"}
+{"image": "Lymph Nodes_1563735_6_C.jpg", "label": "malignant", "split": "4"}
+{"image": "Pelvic Cavity_1564986_2_C.jpg", "label": "malignant", "split": "0"}
+{"image": "Peritoneum_1560338_3_N.png", "label": "benign", "split": "1"}
+{"image": "1493128_C-W1.jpg", "label": "malignant", "split": "2"}
+{"image": "Lymph Nodes_1561425_10_N.png", "label": "benign", "split": "3"}
+{"image": "Thyroid_1566043_1_C.jpg", "label": "malignant", "split": "4"}
+{"image": "Lymph Nodes_1561239_10_N.png", "label": "benign", "split": "0"}
+{"image": "Thyroid_1562872_2_C.jpg", "label": "malignant", "split": "1"}
+{"image": "Nose_1561628_1_N.png", "label": "benign", "split": "2"}
+{"image": "Stomach_1561547_2_N.png", "label": "benign", "split": "3"}
+{"image": "Lung_1562922_1_C.jpg", "label": "malignant", "split": "4"}
+{"image": "Breast_1559846_1_C.png", "label": "malignant", "split": "0"}
+{"image": "Breast_1559071_3_C.jpg", "label": "malignant", "split": "1"}
+{"image": "1473897A_C-W1.jpg", "label": "malignant", "split": "2"}
+{"image": "Breast_1559071_6_C.jpg", "label": "malignant", "split": "3"}
+{"image": "1507593_N-W1.jpg", "label": "benign", "split": "4"}
+{"image": "Subcutaneous_1571603_1_N.jpg", "label": "benign", "split": "0"}
+{"image": "Thyroid_1569005_3_C.png", "label": "malignant", "split": "1"}
+{"image": "Annex_1566900_2_N.png", "label": "benign", "split": "2"}
+{"image": "1482026_C-W1.jpg", "label": "malignant", "split": "3"}
+{"image": "1479880B_C-W1.jpg", "label": "malignant", "split": "4"}
+{"image": "1500207_N-W1.jpg", "label": "benign", "split": "0"}
+{"image": "Thyroid_1566257_1_C.jpg", "label": "malignant", "split": "1"}
+{"image": "Thyroid_1570003_1_C.jpg", "label": "malignant", "split": "2"}
+{"image": "Lung_1559914_1_C.png", "label": "malignant", "split": "3"}
+{"image": "Lymph Nodes_1561425_8_N.png", "label": "benign", "split": "4"}
+{"image": "Gall Bladder_1563109_3_N.jpg", "label": "benign", "split": "0"}
+{"image": "Thyroid_1559244_2_C.jpg", "label": "malignant", "split": "1"}
+{"image": "Thyroid_1567289_1_C.jpg", "label": "malignant", "split": "2"}
+{"image": "Stomach_1567085_3_C.jpg", "label": "malignant", "split": "3"}
+{"image": "Thyroid_1559538_1_C.jpg", "label": "malignant", "split": "4"}
+{"image": "Thyroid_1559558_1_C.jpg", "label": "malignant", "split": "0"}
+{"image": "Appendix_1562980_2_N.jpg", "label": "benign", "split": "1"}
+{"image": "Perineum_1560091_8_C.png", "label": "malignant", "split": "2"}
+{"image": "1479440_C-W1.jpg", "label": "malignant", "split": "3"}
+{"image": "Lymph Nodes_1561425_5_N.png", "label": "benign", "split": "4"}
+{"image": "Lung_1567107_1_C.jpg", "label": "malignant", "split": "0"}
+{"image": "Thyroid_1564397_1_C.jpg", "label": "malignant", "split": "1"}
+{"image": "Lymph Nodes_1559027_11_N.jpg", "label": "benign", "split": "2"}
+{"image": "Thyroid_1569005_4_C.png", "label": "malignant", "split": "3"}
+{"image": "Thyroid_1558876_1_N.jpg", "label": "benign", "split": "4"}
+{"image": "Thyroid_1567301_1_C.png", "label": "malignant", "split": "0"}
+{"image": "Uterus_1568314_1_C.png", "label": "malignant", "split": "1"}
+{"image": "Thyroid_1561706_1_N.png", "label": "benign", "split": "2"}
+{"image": "1505013_N-W1.jpg", "label": "benign", "split": "3"}
+{"image": "Penis_1569974_3_C.jpg", "label": "malignant", "split": "4"}
+{"image": "Annex_1565887_6_C.jpg", "label": "malignant", "split": "0"}
+{"image": "Ovary_1568246_2_N.png", "label": "benign", "split": "1"}
+{"image": "1479695_N-W1.jpg", "label": "benign", "split": "2"}
+{"image": "1494480_N-W1.jpg", "label": "benign", "split": "3"}
+{"image": "Lung_1560095_1_C.png", "label": "malignant", "split": "4"}
+{"image": "Thyroid_1559538_13_C.jpg", "label": "malignant", "split": "0"}
+{"image": "Breast_1559071_5_C.jpg", "label": "malignant", "split": "1"}
+{"image": "1485737_C-W1.jpg", "label": "malignant", "split": "2"}
+{"image": "Thyroid_1563579_5_C.jpg", "label": "malignant", "split": "3"}
+{"image": "Thyroid_1564932_2_C.jpg", "label": "malignant", "split": "4"}
+{"image": "Breast_1559846_3_C.png", "label": "malignant", "split": "0"}
+{"image": "Uterus_1560623_5_N.png", "label": "benign", "split": "1"}
+{"image": "Kidney_1563100_1_N.jpg", "label": "benign", "split": "2"}
+{"image": "Lung_1562157_4_C.png", "label": "malignant", "split": "3"}
+{"image": "Thyroid_1566480_4_C.jpg", "label": "malignant", "split": "4"}
+{"image": "Breast_1560090_9_C.png", "label": "malignant", "split": "0"}
+{"image": "Annex_1564825_2_C.jpg", "label": "malignant", "split": "1"}
+{"image": "Lymph Nodes_1559582_14_N.jpg", "label": "benign", "split": "2"}
+{"image": "Lung_1564023_1_C.jpg", "label": "malignant", "split": "3"}
+{"image": "1493712B_C-W1.jpg", "label": "malignant", "split": "4"}
+{"image": "Thyroid_1568725_1_C.png", "label": "malignant", "split": "0"}
+{"image": "Lung_1567342_1_C.jpg", "label": "malignant", "split": "1"}
+{"image": "Lymph Nodes_1563735_7_C.jpg", "label": "malignant", "split": "2"}
+{"image": "1499869_N-W1.jpg", "label": "benign", "split": "3"}
+{"image": "Breast_1560090_6_C.png", "label": "malignant", "split": "4"}
+{"image": "Annex_1560435_1_N.png", "label": "benign", "split": "0"}
+{"image": "1496198_N-W1.jpg", "label": "benign", "split": "1"}
+{"image": "Thyroid_1567090_1_N.png", "label": "benign", "split": "2"}
+{"image": "Lymph Nodes_1561239_2_N.png", "label": "benign", "split": "3"}
+{"image": "Thyroid_1566930_2_C.png", "label": "malignant", "split": "4"}
+{"image": "Lung_1563987_2_C.jpg", "label": "malignant", "split": "0"}
+{"image": "Uterus_1560178_2_N.png", "label": "benign", "split": "1"}
+{"image": "Pelvic Cavity_1559986_1_N.png", "label": "benign", "split": "2"}
+{"image": "1497785_C-W1.jpg", "label": "malignant", "split": "3"}
+{"image": "Ovary_1563108_2_N.jpg", "label": "benign", "split": "4"}
+{"image": "Lung_1567529_1_C.jpg", "label": "malignant", "split": "0"}
+{"image": "Breast_1564974_1_N.jpg", "label": "benign", "split": "1"}
+{"image": "Stomach_1571291_3_N.jpg", "label": "benign", "split": "2"}
+{"image": "Lymph Nodes_1559582_6_N.jpg", "label": "benign", "split": "3"}
+{"image": "Breast_1560090_7_C.png", "label": "malignant", "split": "4"}
+{"image": "1508460_N-W1.jpg", "label": "benign", "split": "0"}
+{"image": "Thyroid_1568940_3_C.png", "label": "malignant", "split": "1"}
+{"image": "Thyroid_1559558_2_C.jpg", "label": "malignant", "split": "2"}
+{"image": "Uterus_1560623_2_N.png", "label": "benign", "split": "3"}
+{"image": "Lymph Nodes_1564118_1_N.jpg", "label": "benign", "split": "4"}
+{"image": "Thyroid_1564809_1_N.jpg", "label": "benign", "split": "0"}
+{"image": "Fallopian Tubes_1565271_1_N.jpg", "label": "benign", "split": "1"}
+{"image": "1505631_N-W1.jpg", "label": "benign", "split": "2"}
+{"image": "1492511_C-W1.jpg", "label": "malignant", "split": "3"}
+{"image": "Annex_1567551_1_N.jpg", "label": "benign", "split": "4"}
+{"image": "1496200_C-W1.jpg", "label": "malignant", "split": "0"}
+{"image": "Stomach_1560248_1_C.png", "label": "malignant", "split": "1"}
+{"image": "Uterus_1571276_1_N.jpg", "label": "benign", "split": "2"}
+{"image": "Lumps_1560078_2_C.png", "label": "malignant", "split": "3"}
+{"image": "Lung_1560089_1_N.png", "label": "benign", "split": "4"}
+{"image": "Thyroid_1559538_11_C.jpg", "label": "malignant", "split": "0"}
+{"image": "Lung_1560235_1_C.png", "label": "malignant", "split": "1"}
+{"image": "Maxillary Sinus_1561435_1_N.png", "label": "benign", "split": "2"}
+{"image": "Breast_1564867_1_N.jpg", "label": "benign", "split": "3"}
+{"image": "Thyroid_1565874_1_N.jpg", "label": "benign", "split": "4"}
+{"image": "Thyroid_1566480_2_C.jpg", "label": "malignant", "split": "0"}
+{"image": "1503358_N-W1.jpg", "label": "benign", "split": "1"}
+{"image": "Uterus_1560596_1_N.png", "label": "benign", "split": "2"}
+{"image": "Annex_1564825_4_C.jpg", "label": "malignant", "split": "3"}
+{"image": "Thyroid_1559538_9_C.jpg", "label": "malignant", "split": "4"}
+{"image": "Perineum_1560091_10_C.png", "label": "malignant", "split": "0"}
+{"image": "Thyroid_1559261_1_C.jpg", "label": "malignant", "split": "1"}
+{"image": "Thyroid_1563579_4_C.jpg", "label": "malignant", "split": "2"}
+{"image": "1508288A_N-W1.jpg", "label": "benign", "split": "3"}
+{"image": "Gall Bladder_1567265_1_N.jpg", "label": "benign", "split": "4"}
+{"image": "Breast_1559846_10_C.png", "label": "malignant", "split": "0"}
+{"image": "Ovary_1563603_1_N.jpg", "label": "benign", "split": "1"}
+{"image": "Lumps_1560078_3_C.png", "label": "malignant", "split": "2"}
+{"image": "1508288B_N-W1.jpg", "label": "benign", "split": "3"}
+{"image": "Lymph Nodes_1558725_3_C.jpg", "label": "malignant", "split": "4"}
+{"image": "Breast_1559648_3_C.jpg", "label": "malignant", "split": "0"}
+{"image": "Lung_1564006_2_C.jpg", "label": "malignant", "split": "1"}
+{"image": "Breast_1559846_12_C.png", "label": "malignant", "split": "2"}
+{"image": "Stomach_1560455_1_N.png", "label": "benign", "split": "3"}
+{"image": "Thyroid_1566809_1_N.png", "label": "benign", "split": "4"}
+{"image": "Penis_1569974_4_C.jpg", "label": "malignant", "split": "0"}
+{"image": "Perineum_1560091_9_C.png", "label": "malignant", "split": "1"}
+{"image": "1488933_C-W1.jpg", "label": "malignant", "split": "2"}
+{"image": "1507199_N-W1.jpg", "label": "benign", "split": "3"}
+{"image": "1505018_N-W1.jpg", "label": "benign", "split": "4"}
+{"image": "Vocal Cords_1561180_1_C.png", "label": "malignant", "split": "0"}
+{"image": "Breast_1559648_8_C.jpg", "label": "malignant", "split": "1"}
+{"image": "Lymph Nodes_1559582_1_N.jpg", "label": "benign", "split": "2"}
+{"image": "1492682_C-W1.jpg", "label": "malignant", "split": "3"}
+{"image": "Uterus_1564516_2_N.jpg", "label": "benign", "split": "4"}
+{"image": "1476305_C-W1.jpg", "label": "malignant", "split": "0"}
+{"image": "Breast_1558881_10_C.jpg", "label": "malignant", "split": "1"}
+{"image": "Breast_1568297_1_C.png", "label": "malignant", "split": "2"}
+{"image": "1508626_N-W1.jpg", "label": "benign", "split": "4"}
+{"image": "Uterus_1564516_1_N.jpg", "label": "benign", "split": "0"}
+{"image": "Uterus_1565665_2_N.jpg", "label": "benign", "split": "1"}
+{"image": "1508841_C-W1.jpg", "label": "malignant", "split": "2"}
+{"image": "Lung_1561439_2_N.png", "label": "benign", "split": "3"}
+{"image": "Uterus_1563753_2_C.jpg", "label": "malignant", "split": "4"}
+{"image": "Lung_1562157_2_C.png", "label": "malignant", "split": "0"}
+{"image": "Thyroid_1561707_1_N.png", "label": "benign", "split": "1"}
+{"image": "Paratumorial Tissue_1561379_1_N.png", "label": "benign", "split": "2"}
+{"image": "Uterus_1563753_3_C.jpg", "label": "malignant", "split": "3"}
+{"image": "1486374_N-W1.jpg", "label": "benign", "split": "4"}
+{"image": "Thyroid_1566884_1_N.png", "label": "benign", "split": "0"}
+{"image": "Uterus_1567084_3_N.png", "label": "benign", "split": "1"}
+{"image": "Thyroid_1564226_2_C.jpg", "label": "malignant", "split": "2"}
+{"image": "Thyroid_1559538_5_C.jpg", "label": "malignant", "split": "3"}
+{"image": "Annex_1566484_2_N.jpg", "label": "benign", "split": "4"}
+{"image": "Thyroid_1571275_1_N.jpg", "label": "benign", "split": "0"}
+{"image": "Stomach_1567085_2_C.jpg", "label": "malignant", "split": "1"}
+{"image": "Margins_1561675_1_N.png", "label": "benign", "split": "2"}
+{"image": "Thyroid_1562876_2_C.jpg", "label": "malignant", "split": "3"}
+{"image": "1505650_N-W1.jpg", "label": "benign", "split": "4"}
+{"image": "Rectum_1561508_1_N.png", "label": "benign", "split": "0"}

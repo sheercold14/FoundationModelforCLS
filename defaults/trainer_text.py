@@ -130,8 +130,6 @@ class Trainer(BaseTrainer):
                 images = images.to(self.device_id, non_blocking=True) 
                 
                 with torch.amp.autocast("cuda", enabled=self.use_mixed_precision):
-                    if self.additional_loss:
-                        outputs, outputs_organ, visual_feature = self.model(images,return_embedding=True)
                     outputs,visual_feature = self.model(images,text,return_embedding=True)
                     loss = self.criterion(outputs, labels)
             else:
@@ -143,8 +141,6 @@ class Trainer(BaseTrainer):
                 images = images.to(self.device_id, non_blocking=True) 
                 
                 with torch.amp.autocast("cuda", enabled=self.use_mixed_precision):
-                    if self.additional_loss:
-                        outputs, outputs_organ = self.model(images)
                     outputs = self.model(images)
                     loss = self.criterion(outputs, labels)
                 
